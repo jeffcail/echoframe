@@ -1,10 +1,11 @@
 [TOC]
 # 关于我
 一只孤独的饮酒客...
+
 **持续更新中，喜欢的可以点个star。欢迎贡献代码**
 
 github地址: <a href="https://github.com/jeffcail/echo-scaffolding" target="_blank">echo-scaffolding</a>
-
+个人博客地址: <a href="https://blog.caixiaoxin.cn/?p=757" target="_blank">我的博客</a>
 
 
 # echo-scaffolding
