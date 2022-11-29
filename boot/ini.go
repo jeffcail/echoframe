@@ -1,8 +1,10 @@
 package boot
 
-import "github.com/echo-scaffolding/conf"
+import (
+	confini "github.com/echo-scaffolding/conf/ini"
+)
 
 //InitIni
 func InitIni() {
-	conf.ParseIniConfig()
+	confini.ParseIniConfig()
 }

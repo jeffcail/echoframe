@@ -1,21 +1,15 @@
-package conf
+package confyaml
 
 import (
+	"github.com/echo-scaffolding/core/conf/driver"
 	_yaml "github.com/echo-scaffolding/core/conf/yaml"
 )
 
 type CoreConfig struct {
-	Debug    bool
-	HTTPBind string
-	Mysql    struct {
-		DbDsn   string
-		ShowSql bool
-	}
-	Redis struct {
-		RedisAddr string
-		Password  string
-		RedisDb   int
-	}
+	Debug      bool
+	HTTPBind   string
+	Mysql      driver.MysqlConfig
+	Redis      driver.RedisConfig
 	LoggerPath string
 }
 

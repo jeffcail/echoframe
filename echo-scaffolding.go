@@ -1,13 +1,20 @@
 package main
 
 import (
-	"log"
+	"fmt"
+
+	confnacos "github.com/echo-scaffolding/conf/nacos"
+
+	confyaml "github.com/echo-scaffolding/conf/yaml"
+
+	confini "github.com/echo-scaffolding/conf/ini"
 
 	"github.com/echo-scaffolding/boot"
-	"github.com/echo-scaffolding/conf"
 )
 
 func main() {
 	boot.Bootstrap()
-	log.Println(conf.YConf.Mysql.DbDsn)
+	fmt.Println(confini.Config())
+	fmt.Println(confyaml.YConf)
+	fmt.Println(confnacos.NConfig())
 }

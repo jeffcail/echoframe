@@ -1,4 +1,4 @@
-package conf
+package confini
 
 import _ini "github.com/echo-scaffolding/core/conf/ini"
 

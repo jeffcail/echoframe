@@ -1,8 +1,8 @@
 package boot
 
-import "github.com/echo-scaffolding/conf"
+import confyaml "github.com/echo-scaffolding/conf/yaml"
 
 //InitYaml
 func InitYaml() {
-	conf.YamlConfig()
+	confyaml.YamlConfig()
 }

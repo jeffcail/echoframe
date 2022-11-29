@@ -35,12 +35,13 @@ Echo best scaffolding.Fllowing me. Let's go
 
 
 ### 文件配置
+支持 ini、yaml格式. 分布式支持nacos
 #### USAGE
 * ini格式
 ```go
 func main() {
 	boot.Bootstrap()
-	println(conf.Config().DbDsn)
+    fmt.Println(confini.Config())
 }
 ```
 
@@ -48,7 +49,30 @@ func main() {
 ```go
 func main() {
 	boot.Bootstrap()
-	log.Println(conf.YConf.Mysql.DbDsn)
+    fmt.Println(confyaml.YConf)
 }
+```
+
+* nacos
+```yaml
+Debug: true
+HTTPBind: :8090
+Mysql:
+  DbDsn: root:123456@tcp(127.0.0.1:3306)/database_name?charset=utf8mb4
+  ShowSql: true
+Redis:
+  RedisAddr: 127.0.0.1:7379
+  Password: 123456
+  RedisDb: 0
+LoggerPath: ./log/echo-scaffolding.log
+```
+```go
+func main() {
+	boot.Bootstrap()
+    fmt.Println(confnacos.NConfig())
+}
+```
+```shell
+go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo-scaffolding
 ```
 

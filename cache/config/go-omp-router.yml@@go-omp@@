@@ -1,0 +1,17 @@
+Debug: true
+HTTPBind: :7810
+GRPCBind: 8001
+Mysql:
+  DbDsn: root:router001@tcp(192.168.0.71:3306)/omp_router_go?charset=utf8
+  ShowSql: true
+Redis:
+  RedisAddr: 192.168.0.40:7379
+  Password: cKdHKdXl
+  RedisDb: 0
+LoggerPath: ./log/router.log
+Nacos:
+  Addr: 192.168.0.40
+  Port: 7848
+  LogPath: ./log
+  CachePath: ./cache
+LevelDBPath: "./leveldb_data"
