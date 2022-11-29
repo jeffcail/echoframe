@@ -3,7 +3,10 @@
 - [echo-scaffolding](#echo-scaffolding)
   - [简介](#简介)
   - [目的及优势](#目的及优势)
+  - [技术点对应文档](#技术点对应文档)
+  - [职责](#职责)
     - [文件配置](#文件配置)
+    - [路由](#路由)
 # 关于我
 一只孤独的饮酒客...
 
@@ -32,7 +35,13 @@ Echo best scaffolding.Fllowing me. Let's go
 * 快速上手、快速开发、快速交付
 * 高性能、高扩展，避免重复造轮子
 
+## 技术点对应文档
+* ini: https://github.com/go-ini/ini
+* viper: https://github.com/spf13/viper
+* Nacos: https://nacos.io/zh-cn/
+* Echo: https://echo.labstack.com/
 
+## 职责
 
 ### 文件配置
 支持 ini、yaml格式. 分布式配置支持nacos
@@ -75,4 +84,3 @@ func main() {
 ```shell
 go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo-scaffolding
 ```
-
