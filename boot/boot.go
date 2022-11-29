@@ -1,0 +1,3 @@
+package boot
+
+func Bootstrap() {}

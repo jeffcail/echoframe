@@ -35,4 +35,12 @@ Echo best scaffolding.Fllowing me. Let's go
 
 
 ### 文件配置
+#### USAGE
+* ini格式
+```go
+func main() {
+	boot.Bootstrap()
+	println(conf.Config().DbDsn)
+}
+```
 
