@@ -1,11 +1,13 @@
 package main
 
 import (
+	"log"
+
 	"github.com/echo-scaffolding/boot"
 	"github.com/echo-scaffolding/conf"
 )
 
 func main() {
 	boot.Bootstrap()
-	println(conf.Config().DbDsn)
+	log.Println(conf.YConf.Mysql.DbDsn)
 }

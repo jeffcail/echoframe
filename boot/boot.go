@@ -1,3 +1,6 @@
 package boot
 
-func Bootstrap() {}
+func Bootstrap() {
+	InitIni()
+	InitYaml()
+}

@@ -44,3 +44,11 @@ func main() {
 }
 ```
 
+* yaml格式
+```go
+func main() {
+	boot.Bootstrap()
+	log.Println(conf.YConf.Mysql.DbDsn)
+}
+```
+
