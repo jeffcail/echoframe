@@ -35,7 +35,7 @@ Echo best scaffolding.Fllowing me. Let's go
 
 
 ### 文件配置
-支持 ini、yaml格式. 分布式支持nacos
+支持 ini、yaml格式. 分布式配置支持nacos
 #### USAGE
 * ini格式
 ```go
