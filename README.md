@@ -81,6 +81,7 @@ go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo
 ```
 
 ### 路由
+单路由模式和路由组模式
 * 路由
 ```go
 e.GET("/ping", func(c echo.Context) error {
@@ -97,6 +98,7 @@ orderGroup := e.Group("/v1/order")
 ```
 
 ### 日志
+日志支持路径、日志文件大小、保存周期、压缩、时间可配置化。支持达到配置大小，自动压缩。并生成新的日志文件
 ```go
 uber.EchoScaLog.Info("Info logger demo")
 uber.EchoScaLog.Info(fmt.Sprintf("Info logger demo :%d", 123))
