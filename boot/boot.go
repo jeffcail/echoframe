@@ -8,6 +8,7 @@ func Bootstrap() {
 	InitIni()
 	InitYaml()
 	cmd()
+	InitLogger()
 }
 
 func cmd() {

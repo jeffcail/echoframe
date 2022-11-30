@@ -7,6 +7,7 @@
   - [职责](#职责)
     - [文件配置](#文件配置)
     - [路由](#路由)
+    - [日志](#日志)
 # 关于我
 一只孤独的饮酒客...
 
@@ -40,6 +41,9 @@ Echo best scaffolding.Fllowing me. Let's go
 * viper: https://github.com/spf13/viper
 * Nacos: https://nacos.io/zh-cn/
 * Echo: https://echo.labstack.com/
+* Log: https://github.com/uber-go/zap
+* Cron: https://github.com/robfig/cron
+* lumberjack: https://github.com/natefinch/lumberjack
 
 ## 职责
 
@@ -48,18 +52,12 @@ Echo best scaffolding.Fllowing me. Let's go
 #### USAGE
 * ini格式
 ```go
-func main() {
-	boot.Bootstrap()
-    fmt.Println(confini.Config())
-}
+fmt.Println(confini.Config())
 ```
 
 * yaml格式
 ```go
-func main() {
-	boot.Bootstrap()
-    fmt.Println(confyaml.YConf)
-}
+fmt.Println(confyaml.YConf)
 ```
 
 * nacos
@@ -76,11 +74,40 @@ Redis:
 LoggerPath: ./log/echo-scaffolding.log
 ```
 ```go
-func main() {
-	boot.Bootstrap()
-    fmt.Println(confnacos.NConfig())
-}
+fmt.Println(confnacos.NConfig())
 ```
 ```shell
 go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo-scaffolding
+```
+
+### 路由
+* 路由
+```go
+e.GET("/ping", func(c echo.Context) error {
+    return c.JSON(http.StatusOK, "pong...")
+})
+```
+
+* 路由組
+```go
+orderGroup := e.Group("/v1/order")
+{
+    orderGroup.GET("/detail", handlerorder.Detail)
+}
+```
+
+### 日志
+```go
+uber.EchoScaLog.Info("Info logger demo")
+uber.EchoScaLog.Info(fmt.Sprintf("Info logger demo :%d", 123))
+uber.EchoScaLog.Error("Error logger demo")
+var err = errors.New("test error demo")
+uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap.Error(err))
+```
+效果:
+```log
+2022-11-30 11:07:05	INFO	router/router.go:39	Info logger demo
+2022-11-30 11:07:05	INFO	router/router.go:40	Info logger demo :123
+2022-11-30 11:07:05	ERROR	router/router.go:41	Error logger demo
+2022-11-30 11:07:05	ERROR	router/router.go:43	Error logger demo: orderno-13546	{"error": "test error demo"}
 ```

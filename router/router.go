@@ -2,6 +2,9 @@ package router
 
 import (
 	"net/http"
+	"time"
+
+	"github.com/labstack/echo/v4/middleware"
 
 	handlerorder "github.com/echo-scaffolding/internal/handler/order"
 
@@ -12,6 +15,14 @@ import (
 //RunHttpServer
 func RunHttpServer() {
 	e := echo.New()
+
+	e.Use(middleware.CORSWithConfig(
+		middleware.CORSConfig{
+			AllowOrigins:     []string{"*"},
+			AllowMethods:     []string{echo.HEAD, echo.PUT, echo.POST, echo.GET, echo.OPTIONS, echo.PATCH, echo.DELETE},
+			AllowCredentials: true,
+			MaxAge:           int(time.Hour) * 24,
+		}))
 
 	orderGroup := e.Group("/v1/order")
 	{

@@ -6,11 +6,17 @@ import (
 )
 
 type CoreConfig struct {
-	Debug      bool
-	HTTPBind   string
-	Mysql      driver.MysqlConfig
-	Redis      driver.RedisConfig
-	LoggerPath string
+	Debug    bool
+	HTTPBind string
+	Mysql    driver.MysqlConfig
+	Redis    driver.RedisConfig
+	Logger   struct {
+		Path      string
+		MaxSize   int
+		MaxAge    int
+		Compress  bool
+		LocalTime bool
+	}
 }
 
 var YConf *CoreConfig

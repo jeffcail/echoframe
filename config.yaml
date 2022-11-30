@@ -7,4 +7,9 @@ Redis:
   RedisAddr: 127.0.0.1:7379
   Password: 123456
   RedisDb: 0
-LoggerPath: ./log/echo-scaffolding.log
+Logger:
+  Path: ./log/echo-scaffolding.log
+  MaxSize: 10240
+  MaxAge: 7
+  Compress: true
+  LocalTime: true
