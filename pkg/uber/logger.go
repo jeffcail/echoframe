@@ -1,4 +1,4 @@
-package uber
+package _uber
 
 import (
 	"errors"

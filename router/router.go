@@ -1,8 +1,16 @@
 package router
 
 import (
+	"errors"
+	"fmt"
 	"net/http"
 	"time"
+
+	_echo "github.com/echo-scaffolding/pkg/echo"
+
+	"go.uber.org/zap"
+
+	_uber "github.com/echo-scaffolding/pkg/uber"
 
 	"github.com/labstack/echo/v4/middleware"
 
@@ -23,6 +31,11 @@ func RunHttpServer() {
 			AllowCredentials: true,
 			MaxAge:           int(time.Hour) * 24,
 		}))
+	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Format: "ip=${remote_ip} time=${time_rfc3339}, method=${method}, uri=${uri}, status=${status}, latency_human=${latency_human}\n",
+		Output: _echo.EchoLog,
+	}))
+	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
 
 	orderGroup := e.Group("/v1/order")
 	{
@@ -30,6 +43,11 @@ func RunHttpServer() {
 	}
 
 	e.GET("/ping", func(c echo.Context) error {
+		_uber.EchoScaLog.Info("Info logger demo")
+		_uber.EchoScaLog.Info(fmt.Sprintf("Info logger demo :%d", 123))
+		_uber.EchoScaLog.Error("Error logger demo")
+		var err = errors.New("test error demo")
+		_uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap.Error(err))
 		return c.JSON(http.StatusOK, "pong...")
 	})
 
