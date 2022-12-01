@@ -40,6 +40,7 @@ func RunHttpServer() {
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
 
 	e.Use(_middle.ReqLog())
+	e.Use(middleware.BodyDumpWithConfig(_middle.DefaultBodyDumpConfig))
 
 	orderGroup := e.Group("/v1/order")
 	{
