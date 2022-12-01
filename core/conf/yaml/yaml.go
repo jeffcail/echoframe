@@ -3,8 +3,8 @@ package _yaml
 import "github.com/spf13/viper"
 
 // LoadCoreConfig
-func LoadCoreConfig(config interface{}) {
-	viper.SetConfigFile("config.yaml")
+func LoadCoreConfig(path string, config interface{}) {
+	viper.SetConfigFile(path)
 	err := viper.ReadInConfig()
 	if err != nil {
 		panic(err)

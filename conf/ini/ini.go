@@ -10,6 +10,6 @@ func Config() *_ini.CoreConfig {
 }
 
 //ParseIniConfig
-func ParseIniConfig() {
-	config = _ini.LoadCoreConfig()
+func ParseIniConfig(path string) {
+	config = _ini.LoadCoreConfig(path)
 }

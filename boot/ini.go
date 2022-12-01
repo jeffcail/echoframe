@@ -5,6 +5,6 @@ import (
 )
 
 //InitIni
-func InitIni() {
-	confini.ParseIniConfig()
+func InitIni(path string) {
+	confini.ParseIniConfig(path)
 }

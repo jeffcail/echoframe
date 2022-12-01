@@ -6,13 +6,17 @@ import (
 	"net/http"
 	"time"
 
+	confini "github.com/echo-scaffolding/conf/ini"
+
+	confnacos "github.com/echo-scaffolding/conf/nacos"
+
 	_middle "github.com/echo-scaffolding/common/middle"
 
 	_echo "github.com/echo-scaffolding/pkg/echo"
 
 	"go.uber.org/zap"
 
-	_uber "github.com/echo-scaffolding/pkg/uber"
+	uber "github.com/echo-scaffolding/pkg/uber"
 
 	"github.com/labstack/echo/v4/middleware"
 
@@ -48,13 +52,20 @@ func RunHttpServer() {
 	}
 
 	e.GET("/ping", func(c echo.Context) error {
-		_uber.EchoScaLog.Info("Info logger demo")
-		_uber.EchoScaLog.Info(fmt.Sprintf("Info logger demo :%d", 123))
-		_uber.EchoScaLog.Error("Error logger demo")
+		uber.EchoScaLog.Info("Info logger demo")
+		uber.EchoScaLog.Info(fmt.Sprintf("Info logger demo :%d", 123))
+		uber.EchoScaLog.Error("Error logger demo")
 		var err = errors.New("test error demo")
-		_uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap.Error(err))
+		uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap.Error(err))
 		return c.JSON(http.StatusOK, "pong...")
 	})
 
-	e.Logger.Fatal(e.Start(confyaml.YConf.HTTPBind))
+	if confyaml.YConf != nil {
+		e.Logger.Fatal(e.Start(confyaml.YConf.HTTPBind))
+	} else if confnacos.NConfig().HTTPBind != "" {
+		e.Logger.Fatal(e.Start(confnacos.NConfig().HTTPBind))
+	} else if confini.Config().HTTPBind != "" {
+		e.Logger.Fatal(e.Start(confini.Config().HTTPBind))
+	}
+
 }

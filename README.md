@@ -50,19 +50,21 @@ Echo best scaffolding.Fllowing me. Let's go
 ## 职责
 
 ### 文件配置
-支持 ini、yaml格式. 分布式配置支持nacos
+* 支持 ini、yaml格式. 分布式配置支持nacos
+* 支持多环境配置 dev、pre、prod, 分别为开发环境、预发布环境、生产环境
+* 主配置文件为application.yaml
+* 如果同时开启了远程配置和本地配置，远程配置优先级高于本地配置
+* 远程和本地配置开关必须开启一个
+* ini模型配置文件为.example.ini,将.example.ini拷贝为dev.ini、pre.ini、prod、ini即可
+* yaml模型配置文件为.example.yaml,将.example.yaml.yaml、pre.yaml、prod、yaml即可
+
 #### USAGE
-* ini格式
-```go
-fmt.Println(confini.Config())
-```
-
-* yaml格式
-```go
-fmt.Println(confyaml.YConf)
-```
-
 * nacos
+使用nacos远程配置，需要在主文件开启远程配置开关,开启后自动忽略本地配置文件
+  
+```yaml
+Remote: true
+```
 ```yaml
 Debug: true
 HTTPBind: :8090
@@ -80,6 +82,35 @@ fmt.Println(confnacos.NConfig())
 ```
 ```shell
 go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo-scaffolding
+```
+
+
+* ini格式
+
+使用本地ini配置文件,需要关闭远程配置开关.开启ini配置开关，并且选择使用的环境
+```yaml
+Local: true
+ExtFormat: ini
+EnvModel: dev
+```
+
+
+
+```go
+fmt.Println(confini.Config())
+```
+
+* yaml格式
+  
+使用本地yaml配置文件,需要关闭远程配置开关.开启yaml配置开关，并且选择使用的环境
+```yaml
+Local: true
+ExtFormat: yaml
+EnvModel: dev
+```
+
+```go
+fmt.Println(confyaml.YConf)
 ```
 
 ### 路由
@@ -119,4 +150,4 @@ uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap
 ### 请求日志
 打印请求崩溃堆栈链路信息
 采用UUID。为每次请求打上一个唯一ID标识。请求分飞两种，API请求和网页请求。url path意/api/开头为 API请求日志，其他为网页请求日志。 - 前后端合并部署的情况
-
+支持请求日志控制台输出

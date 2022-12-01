@@ -20,10 +20,10 @@ type CoreConfig struct {
 }
 
 //LoadCoreConfig
-func LoadCoreConfig() *CoreConfig {
+func LoadCoreConfig(path string) *CoreConfig {
 	var err error
 
-	cfg, err := ini.Load("config.ini")
+	cfg, err := ini.Load(path)
 	if err != nil {
 		log.Fatal("Fail to parse conf", err)
 	}

@@ -22,8 +22,8 @@ type CoreConfig struct {
 var YConf *CoreConfig
 
 //YamlConfig
-func YamlConfig() {
+func YamlConfig(path string) {
 	c := &CoreConfig{}
-	_yaml.LoadCoreConfig(c)
+	_yaml.LoadCoreConfig(path, c)
 	YConf = c
 }
