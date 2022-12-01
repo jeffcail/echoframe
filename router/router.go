@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	_middle "github.com/echo-scaffolding/common/middle"
+
 	_echo "github.com/echo-scaffolding/pkg/echo"
 
 	"go.uber.org/zap"
@@ -36,6 +38,8 @@ func RunHttpServer() {
 		Output: _echo.EchoLog,
 	}))
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
+
+	e.Use(_middle.ReqLog())
 
 	orderGroup := e.Group("/v1/order")
 	{

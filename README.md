@@ -8,6 +8,7 @@
     - [文件配置](#文件配置)
     - [路由](#路由)
     - [日志](#日志)
+    - [请求日志](#请求日志)
 # 关于我
 一只孤独的饮酒客...
 
@@ -44,6 +45,7 @@ Echo best scaffolding.Fllowing me. Let's go
 * Log: https://github.com/uber-go/zap
 * Cron: https://github.com/robfig/cron
 * lumberjack: https://github.com/natefinch/lumberjack
+* UUID: https://github.com/google/uuid
 
 ## 职责
 
@@ -113,3 +115,8 @@ uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap
 2022-11-30 11:07:05	ERROR	router/router.go:41	Error logger demo
 2022-11-30 11:07:05	ERROR	router/router.go:43	Error logger demo: orderno-13546	{"error": "test error demo"}
 ```
+
+### 请求日志
+打印请求崩溃堆栈链路信息
+采用UUID。为每次请求打上一个唯一ID标识。请求分飞两种，API请求和网页请求。url path意/api/开头为 API请求日志，其他为网页请求日志。 - 前后端合并部署的情况
+
