@@ -176,3 +176,4 @@ IsEnableGOMAXPROCS: false
 集成了HTTP请求.支持常用的请求方式GET、POST.具体使用详情查看<a href="https://github.com/jeffcail/gorequest" target="_blank">gorequest</a>
 
 ### API统一格式返回
+common/code 定义状态码目录
