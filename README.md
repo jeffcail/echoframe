@@ -10,6 +10,7 @@
     - [日志](#日志)
     - [请求日志](#请求日志)
     - [GOMAXPROCS](#GOMAXPROCS)
+    - [HTTP请求](#HTTP请求)
 # 关于我
 一只孤独的饮酒客...
 
@@ -47,6 +48,7 @@ Echo best scaffolding.Fllowing me. Let's go
 * Cron: https://github.com/robfig/cron (github.com/robfig/cron v1.2.0)
 * lumberjack: https://github.com/natefinch/lumberjack
 * UUID: https://github.com/google/uuid
+* gorequest: https://github.com/jeffcail/gorequest
 
 ## 职责
 
@@ -159,3 +161,6 @@ uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap
 ```json
 IsEnableGOMAXPROCS: false
 ```
+
+### HTTP请求
+集成了HTTP请求.支持常用的请求方式GET、POST.具体使用详情查看<a href="https://github.com/jeffcail/gorequest" target="_blank">gorequest</a>

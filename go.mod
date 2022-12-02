@@ -8,6 +8,8 @@ require (
 	github.com/spf13/viper v1.14.0
 )
 
+require github.com/jeffcail/gorequest v0.0.0-20221201143053-dd022460ffaa // indirect
+
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1704 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
