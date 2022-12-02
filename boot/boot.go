@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/echo-scaffolding/common/procs"
+	_procs "github.com/echo-scaffolding/common/procs"
 
 	"github.com/spf13/viper"
 )
@@ -45,7 +45,7 @@ func init() {
 	}
 
 	if app.IsEnableGOMAXPROCS {
-		procs.GroRuntimeMaxCpu()
+		_procs.GroRuntimeMaxCpu()
 	}
 
 	if app.Remote {

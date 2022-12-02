@@ -1,4 +1,4 @@
-package procs
+package _procs
 
 import "runtime"
 

@@ -7,7 +7,7 @@ import (
 
 	"github.com/echo-scaffolding/conf"
 
-	"github.com/echo-scaffolding/common/estime"
+	_estime "github.com/echo-scaffolding/common/estime"
 	"github.com/robfig/cron"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -41,7 +41,7 @@ func Init() {
 
 func zapEncoder() zapcore.Encoder {
 	encoderConfig := zap.NewProductionEncoderConfig()
-	encoderConfig.EncodeTime = zapcore.TimeEncoderOfLayout(estime.LAYOUT)
+	encoderConfig.EncodeTime = zapcore.TimeEncoderOfLayout(_estime.LAYOUT)
 	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder
 	return zapcore.NewConsoleEncoder(encoderConfig)
 }
