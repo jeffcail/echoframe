@@ -4,9 +4,3 @@ go_build_echo_scaffolding.exe
 go_build_echo_scaffolding
 log
 cache
-dev.ini
-pre.ini
-prod.ini
-dev.yaml
-pre.yaml
-prod.yaml

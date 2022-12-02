@@ -4,5 +4,5 @@ import _uber "github.com/echo-scaffolding/pkg/uber"
 
 // InitLogger
 func InitLogger() {
-	_uber.NewLogger()
+	_uber.Init()
 }

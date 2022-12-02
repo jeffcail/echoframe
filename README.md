@@ -9,6 +9,7 @@
     - [路由](#路由)
     - [日志](#日志)
     - [请求日志](#请求日志)
+    - [GOMAXPROCS](#GOMAXPROCS)
 # 关于我
 一只孤独的饮酒客...
 
@@ -43,7 +44,7 @@ Echo best scaffolding.Fllowing me. Let's go
 * Nacos: https://nacos.io/zh-cn/
 * Echo: https://echo.labstack.com/
 * Log: https://github.com/uber-go/zap
-* Cron: https://github.com/robfig/cron
+* Cron: https://github.com/robfig/cron (github.com/robfig/cron v1.2.0)
 * lumberjack: https://github.com/natefinch/lumberjack
 * UUID: https://github.com/google/uuid
 
@@ -152,3 +153,9 @@ uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap
 打印请求崩溃堆栈链路信息
 采用UUID。为每次请求打上一个唯一ID标识。请求分飞两种，API请求和网页请求。url path意/api/开头为 API请求日志，其他为网页请求日志。 - 前后端合并部署的情况
 支持请求日志控制台输出
+
+### GOMAXPROCS
+主配置文件增加是否开启GOMAXPROCS开关. 默认不开启
+```json
+IsEnableGOMAXPROCS: false
+```

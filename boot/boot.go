@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/echo-scaffolding/common/procs"
+
 	"github.com/spf13/viper"
 )
 
@@ -22,14 +24,14 @@ var (
 )
 
 type ApplicationConf struct {
-	Local     bool
-	ExtFormat string
-	Remote    bool
-	EnvModel  string
+	Local              bool
+	ExtFormat          string
+	Remote             bool
+	EnvModel           string
+	IsEnableGOMAXPROCS bool
 }
 
-// Boot
-func Boot() {
+func init() {
 	app := &ApplicationConf{}
 	viper.SetConfigFile("application.yaml")
 	err := viper.ReadInConfig()
@@ -40,6 +42,10 @@ func Boot() {
 	err = viper.Unmarshal(app)
 	if err != nil {
 		panic(err)
+	}
+
+	if app.IsEnableGOMAXPROCS {
+		procs.GroRuntimeMaxCpu()
 	}
 
 	if app.Remote {
@@ -128,8 +134,12 @@ func Boot() {
 				return
 			}
 		}
-
 	}
+}
+
+// Boot
+func Boot() {
+	InitLogger()
 }
 
 func cmd() {
@@ -141,10 +151,3 @@ func cmd() {
 		InitNacos()
 	}
 }
-
-//func Bootstrap() {
-//	InitIni()
-//	InitYaml()
-//	cmd()
-//	InitLogger()
-//}

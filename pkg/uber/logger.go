@@ -2,14 +2,13 @@ package uber
 
 import (
 	"errors"
-	"log"
 	"os"
 	"sync"
 
 	"github.com/echo-scaffolding/conf"
 
 	"github.com/echo-scaffolding/common/estime"
-	"github.com/robfig/cron/v3"
+	"github.com/robfig/cron"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
@@ -56,15 +55,10 @@ func zapWriteSyncer() zapcore.WriteSyncer {
 		Compress:  conf.Config.Logger.Compress,
 	}
 	c := cron.New()
-	_, err := c.AddFunc("0 0 0 1/1 * ?", func() {
-		err := logger.Rotate()
-		if err != nil {
-			log.Println(RotateFailed)
-		}
+	c.AddFunc("0 0 0 1/1 * ?", func() {
+		logger.Rotate()
 	})
-	if err != nil {
-		log.Println(AddFuncFailed)
-	}
+
 	c.Start()
 	return zapcore.AddSync(logger)
 }
