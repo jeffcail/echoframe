@@ -2,6 +2,7 @@
 - [关于我](#关于我)
 - [echo-scaffolding](#echo-scaffolding)
   - [简介](#简介)
+  - [安装](#安装)
   - [目的及优势](#目的及优势)
   - [技术点对应文档](#技术点对应文档)
   - [职责](#职责)
@@ -32,7 +33,15 @@ CSDN: <a href="caixiaoxin.blog.csdn.net">太阳上的雨天></a>
 Echo best scaffolding.Fllowing me. Let's go
 基于echo框架，搭建一个最好用的脚手架。
 
+## 安装
+安装完之后名字echo-scaffolding可改，可根据自己的需求精简或者添加架子结构。也可直接使用
+```shell
+git clone https://github.com/jeffcail/echo-scaffolding.git
 
+cd echo-scaffolding
+
+go mod tidy
+```
 
 ## 目的及优势
 
