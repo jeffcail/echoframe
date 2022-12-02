@@ -12,6 +12,7 @@
     - [请求日志](#请求日志)
     - [GOMAXPROCS](#GOMAXPROCS)
     - [HTTP请求](#HTTP请求)
+    - [API统一格式返回](#API统一格式返回)
 # 关于我
 一只孤独的饮酒客...
 
@@ -173,3 +174,5 @@ IsEnableGOMAXPROCS: false
 
 ### HTTP请求
 集成了HTTP请求.支持常用的请求方式GET、POST.具体使用详情查看<a href="https://github.com/jeffcail/gorequest" target="_blank">gorequest</a>
+
+### API统一格式返回
