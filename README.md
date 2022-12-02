@@ -78,7 +78,7 @@ Redis:
 LoggerPath: ./log/echo-scaffolding.log
 ```
 ```go
-fmt.Println(confnacos.NConfig())
+fmt.Println(conf.Config)
 ```
 ```shell
 go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo-scaffolding
@@ -87,7 +87,7 @@ go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo
 
 * ini格式
 
-使用本地ini配置文件,需要关闭远程配置开关.开启ini配置开关，并且选择使用的环境
+使用本地ini配置文件,需要关闭远程配置开关.开启读取本地的开关和开启ini配置开关，并且选择使用的环境.默认使用dev环境的配置文件
 ```yaml
 Local: true
 ExtFormat: ini
@@ -97,20 +97,20 @@ EnvModel: dev
 
 
 ```go
-fmt.Println(confini.Config())
+fmt.Println(conf.Config)
 ```
 
 * yaml格式
   
-使用本地yaml配置文件,需要关闭远程配置开关.开启yaml配置开关，并且选择使用的环境
+使用本地yaml配置文件,需要关闭远程配置开关.开启读取本地的开关和开启yaml配置开关，并且选择使用的环境，环境默认使用dev环境的配置文件
 ```yaml
 Local: true
 ExtFormat: yaml
-EnvModel: dev
+EnvModel: 
 ```
 
 ```go
-fmt.Println(confyaml.YConf)
+fmt.Println(conf.Config)
 ```
 
 ### 路由

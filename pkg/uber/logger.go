@@ -6,7 +6,7 @@ import (
 	"os"
 	"sync"
 
-	confyaml "github.com/echo-scaffolding/conf/yaml"
+	"github.com/echo-scaffolding/conf"
 
 	"github.com/echo-scaffolding/common/estime"
 	"github.com/robfig/cron/v3"
@@ -49,11 +49,11 @@ func zapEncoder() zapcore.Encoder {
 
 func zapWriteSyncer() zapcore.WriteSyncer {
 	logger := &lumberjack.Logger{
-		Filename:  confyaml.YConf.Logger.Path,
-		MaxSize:   confyaml.YConf.Logger.MaxSize,
-		MaxAge:    confyaml.YConf.Logger.MaxAge,
-		LocalTime: confyaml.YConf.Logger.LocalTime,
-		Compress:  confyaml.YConf.Logger.Compress,
+		Filename:  conf.Config.Logger.Path,
+		MaxSize:   conf.Config.Logger.MaxSize,
+		MaxAge:    conf.Config.Logger.MaxAge,
+		LocalTime: conf.Config.Logger.LocalTime,
+		Compress:  conf.Config.Logger.Compress,
 	}
 	c := cron.New()
 	_, err := c.AddFunc("0 0 0 1/1 * ?", func() {

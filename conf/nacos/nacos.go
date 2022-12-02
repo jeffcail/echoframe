@@ -3,7 +3,7 @@ package confnacos
 import (
 	"flag"
 
-	"github.com/echo-scaffolding/core/conf/driver"
+	"github.com/echo-scaffolding/conf"
 
 	_nacos "github.com/echo-scaffolding/core/conf/nacos"
 )
@@ -19,21 +19,8 @@ func init() {
 	flag.Parse()
 }
 
-type NacosConfig struct {
-	Debug      bool
-	HTTPBind   string
-	Mysql      driver.MysqlConfig
-	Redis      driver.RedisConfig
-	LoggerPath string
-}
-
-var config NacosConfig
-
-func NConfig() NacosConfig {
-	return config
-}
-
 //InitNacos
 func InitNacos() {
-	_nacos.LoadCoreConfig(*ip, *port, *cfg, *group, &config)
+	conf.NewCoreConfig()
+	_nacos.LoadCoreConfig(*ip, *port, *cfg, *group, conf.Config)
 }

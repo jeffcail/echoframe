@@ -6,9 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	confini "github.com/echo-scaffolding/conf/ini"
-
-	confnacos "github.com/echo-scaffolding/conf/nacos"
+	"github.com/echo-scaffolding/conf"
 
 	_middle "github.com/echo-scaffolding/common/middle"
 
@@ -22,7 +20,6 @@ import (
 
 	handlerorder "github.com/echo-scaffolding/internal/handler/order"
 
-	confyaml "github.com/echo-scaffolding/conf/yaml"
 	"github.com/labstack/echo/v4"
 )
 
@@ -60,12 +57,5 @@ func RunHttpServer() {
 		return c.JSON(http.StatusOK, "pong...")
 	})
 
-	if confyaml.YConf != nil {
-		e.Logger.Fatal(e.Start(confyaml.YConf.HTTPBind))
-	} else if confnacos.NConfig().HTTPBind != "" {
-		e.Logger.Fatal(e.Start(confnacos.NConfig().HTTPBind))
-	} else if confini.Config().HTTPBind != "" {
-		e.Logger.Fatal(e.Start(confini.Config().HTTPBind))
-	}
-
+	e.Logger.Fatal(e.Start(conf.Config.HTTPBind))
 }
