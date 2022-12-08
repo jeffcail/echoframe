@@ -1,11 +1,11 @@
 [TOC]- [关于我](#关于我)
 - [关于我](#关于我)
 - [echo-scaffolding](#echo-scaffolding)
-  - [一 简介](#简介)
-  - [二 安装](#安装)
-  - [三 目的及优势](#目的及优势)
-  - [四 技术点对应文档](#技术点对应文档)
-  - [五 职责](#职责)
+  - [简介](#简介)
+  - [安装](#安装)
+  - [目的及优势](#目的及优势)
+  - [技术点对应文档](#技术点对应文档)
+  - [职责](#职责)
     - [1. 文件配置](#文件配置)
     - [2. 路由](#路由)
     - [3. 日志](#日志)
@@ -32,11 +32,11 @@ CSDN: <a href="caixiaoxin.blog.csdn.net">太阳上的雨天></a>
 
 
 
-## 一 简介
+## 简介
 Echo best scaffolding.Fllowing me. Let's go
 基于echo框架，搭建一个最好用的脚手架。
 
-## 二 安装
+## 安装
 安装完之后名字echo-scaffolding可改，可根据自己的需求精简或者添加架子结构。也可直接使用
 ```shell
 git clone https://github.com/jeffcail/echo-scaffolding.git
@@ -48,12 +48,12 @@ go mod tidy
 go run echo-scaffolding
 ```
 
-## 三 目的及优势
+## 目的及优势
 
 * 快速上手、快速开发、快速交付
 * 高性能、高扩展，避免重复造轮子
 
-## 四 技术点对应文档
+## 技术点对应文档
 * ini: https://github.com/go-ini/ini
 * viper: https://github.com/spf13/viper
 * Nacos: https://nacos.io/zh-cn/
@@ -66,9 +66,9 @@ go run echo-scaffolding
 * mysql: github.com/go-sql-driver/mysql  
 * xorm: https://github.com/go-xorm/xorm
 
-## 五 职责
+## 职责
 
-### 1 文件配置
+### 文件配置
 * 支持 ini、yaml格式. 分布式配置支持nacos
 * 支持多环境配置 dev、pre、prod, 分别为开发环境、预发布环境、生产环境
 * 主配置文件为application.yaml
@@ -133,7 +133,7 @@ EnvModel:
 fmt.Println(conf.Config)
 ```
 
-### 2 路由
+### 路由
 单路由模式和路由组模式
 * 路由
 ```go
@@ -150,7 +150,7 @@ orderGroup := e.Group("/v1/order")
 }
 ```
 
-### 3 日志
+### 日志
 日志支持路径、日志文件大小、保存周期、压缩、时间可配置化。支持达到配置大小，自动压缩。并生成新的日志文件
 ```go
 uber.EchoScaLog.Info("Info logger demo")
@@ -167,24 +167,24 @@ uber.EchoScaLog.Error(fmt.Sprintf("Error logger demo: %s", "orderno-13546"), zap
 2022-11-30 11:07:05	ERROR	router/router.go:43	Error logger demo: orderno-13546	{"error": "test error demo"}
 ```
 
-### 4 请求日志
+### 请求日志
 打印请求崩溃堆栈链路信息
 采用UUID。为每次请求打上一个唯一ID标识。请求分飞两种，API请求和网页请求。url path意/api/开头为 API请求日志，其他为网页请求日志。 - 前后端合并部署的情况
 支持请求日志控制台输出
 
-### 5 GOMAXPROCS
+### GOMAXPROCS
 主配置文件增加是否开启GOMAXPROCS开关. 默认不开启
 ```json
 IsEnableGOMAXPROCS: false
 ```
 
-### 6 HTTP请求
+### HTTP请求
 集成了HTTP请求.支持常用的请求方式GET、POST.具体使用详情查看<a href="https://github.com/jeffcail/gorequest" target="_blank">gorequest</a>
 
 ### API统一格式返回
 common/code 定义状态码目录
 
-### 7 数据库
+### 数据库
 使用
 ```go
 db.Mysql.Table()
