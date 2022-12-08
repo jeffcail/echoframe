@@ -8,7 +8,12 @@ require (
 	github.com/spf13/viper v1.14.0
 )
 
-require github.com/jeffcail/gorequest v0.0.0-20221201143053-dd022460ffaa // indirect
+require (
+	github.com/go-sql-driver/mysql v1.7.0 // indirect
+	github.com/go-xorm/xorm v0.7.9 // indirect
+	xorm.io/builder v0.3.6 // indirect
+	xorm.io/core v0.7.2-0.20190928055935-90aeac8d08eb // indirect
+)
 
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1704 // indirect
@@ -17,11 +22,11 @@ require (
 	github.com/go-errors/errors v1.0.1 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/golang/mock v1.6.0 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.3.0
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/labstack/echo/v4 v4.9.1 // indirect
+	github.com/labstack/echo/v4 v4.9.1
 	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect

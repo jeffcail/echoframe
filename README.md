@@ -13,6 +13,8 @@
     - [GOMAXPROCS](#GOMAXPROCS)
     - [HTTP请求](#HTTP请求)
     - [API统一格式返回](#API统一格式返回)
+    - [数据库](#数据库)  支持mysql
+    - [XORM](#数据库)
 # 关于我
 一只孤独的饮酒客...
 
@@ -42,6 +44,8 @@ git clone https://github.com/jeffcail/echo-scaffolding.git
 cd echo-scaffolding
 
 go mod tidy
+
+go run echo-scaffolding
 ```
 
 ## 目的及优势
@@ -59,6 +63,8 @@ go mod tidy
 * lumberjack: https://github.com/natefinch/lumberjack
 * UUID: https://github.com/google/uuid
 * gorequest: https://github.com/jeffcail/gorequest
+* mysql: github.com/go-sql-driver/mysql  
+* xorm: https://github.com/go-xorm/xorm
 
 ## 职责
 
@@ -177,3 +183,33 @@ IsEnableGOMAXPROCS: false
 
 ### API统一格式返回
 common/code 定义状态码目录
+
+### 数据库
+使用
+```go
+db.Mysql.Table()
+```
+
+开启事物
+```go
+err := db.NewMysqlEngine().Transaction(func(s *xorm.Session) error {
+    insert, err := s.Insert(data)
+    if err != nil {
+    return err
+    }
+    if insert != 1 {
+    return errors.New("data write failed")
+    }
+    
+    update, err := s.Update(data)
+    if err != nil {
+    return err
+    }
+    if update != 1 {
+    return errors.New("data update failed")
+    }
+    return nil
+})
+if err != nil {
+log.Println(err)
+```

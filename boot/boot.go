@@ -140,6 +140,7 @@ func init() {
 // Boot
 func Boot() {
 	InitLogger()
+	InitMysql()
 }
 
 func cmd() {

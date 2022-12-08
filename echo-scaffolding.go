@@ -7,5 +7,6 @@ import (
 
 func main() {
 	boot.Boot()
+
 	router.RunHttpServer()
 }
