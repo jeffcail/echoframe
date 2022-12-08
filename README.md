@@ -15,6 +15,7 @@
     - [7. API统一格式返回](#API统一格式返回)
     - [8. 数据库](#数据库)  支持mysql
     - [9. XORM](#数据库)
+    - [10. 根据数据库自动生成go struct](#根据数据库自动生成go struct)
 # 关于我
 一只孤独的饮酒客...
 
@@ -212,4 +213,21 @@ err := db.NewMysqlEngine().Transaction(func(s *xorm.Session) error {
 })
 if err != nil {
 log.Println(err)
+```
+
+### 根据数据库自动生成go struct
+```shell
+go get github.com/go-xorm/cmd/xorm
+go get github.com/go-xorm/xorm
+```
+到GOPATH\src\github.com\go-xorm\cmd\xorm 目录下，执行
+
+```shell
+go build
+```
+
+用法
+修改脚本里面的数据连接信息和数据库名字
+```shell
+./sqlToStruct.sh
 ```
