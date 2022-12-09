@@ -26,6 +26,7 @@ var (
 func Boot() {
 	InitLogger()
 	InitMysql()
+	InstanceRedis()
 }
 
 type ApplicationConf struct {

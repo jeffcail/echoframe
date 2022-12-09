@@ -16,6 +16,7 @@
     - [8. 数据库](#数据库)  支持mysql
     - [9. XORM](#数据库)
     - [10. 根据数据库自动生成go struct](#根据数据库自动生成go struct)
+    - [11. Redis](#Redis)
 # 关于我
 一只孤独的饮酒客...
 
@@ -54,7 +55,7 @@ go run echo-scaffolding
 * 快速上手、快速开发、快速交付
 * 高性能、高扩展，避免重复造轮子
 
-## 技术点对应文档
+## 技术栈和对应的包
 * ini: https://github.com/go-ini/ini
 * viper: https://github.com/spf13/viper
 * Nacos: https://nacos.io/zh-cn/
@@ -66,6 +67,7 @@ go run echo-scaffolding
 * gorequest: https://github.com/jeffcail/gorequest
 * mysql: github.com/go-sql-driver/mysql  
 * xorm: https://github.com/go-xorm/xorm
+* Redis: gopkg.in/redis.v5
 
 ## 职责
 
@@ -230,4 +232,10 @@ go build
 修改脚本里面的数据连接信息和数据库名字
 ```shell
 ./sqlToStruct.sh
+```
+
+### Redis
+用法
+```go
+db.Rc.Set("a", 10, -1)
 ```
