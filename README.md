@@ -193,7 +193,7 @@ db.Mysql.Table()
 
 开启事物
 ```go
-err := db.NewMysqlEngine().Transaction(func(s *xorm.Session) error {
+err := db.Mysql.Transaction(func(s *xorm.Session) error {
     insert, err := s.Insert(data)
     if err != nil {
     return err

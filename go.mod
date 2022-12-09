@@ -4,29 +4,18 @@ go 1.17
 
 require (
 	github.com/go-ini/ini v1.67.0
+	github.com/go-sql-driver/mysql v1.7.0
+	github.com/go-xorm/xorm v0.7.9
 	github.com/nacos-group/nacos-sdk-go v1.1.3
 	github.com/spf13/viper v1.14.0
 )
 
 require (
-	gitea.com/lunny/log v0.0.0-20190322053110-01b5df579c4e // indirect
-	github.com/ahl5esoft/golang-underscore v2.0.0+incompatible // indirect
 	github.com/denisenkom/go-mssqldb v0.10.0 // indirect
-	github.com/go-sql-driver/mysql v1.7.0 // indirect
-	github.com/go-xorm/xorm v0.7.9 // indirect
-	github.com/gobwas/glob v0.2.3 // indirect
-	github.com/goccy/go-json v0.7.4 // indirect
-	github.com/golang-sql/civil v0.0.0-20190719163853-cb61b32ac6fe // indirect
-	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/lib/pq v1.10.2 // indirect
 	github.com/mattn/go-sqlite3 v1.14.8 // indirect
-	github.com/spf13/cobra v0.0.5 // indirect
-	github.com/syndtr/goleveldb v1.0.0 // indirect
 	xorm.io/builder v0.3.9 // indirect
 	xorm.io/core v0.7.2-0.20190928055935-90aeac8d08eb // indirect
-	xorm.io/reverse v0.1.2 // indirect
-	xorm.io/xorm v1.2.3 // indirect
 )
 
 require (

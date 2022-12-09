@@ -12,5 +12,5 @@ func InitMysql() {
 	engine, err := _xorm.CreateMysql()
 	global.CheckErr(err)
 	engine.SetLogger(xorm.NewSimpleLogger(_xorm.XLog))
-	db.NewMysqlEngine().SetMysql(engine)
+	db.Mysql.SetMysql(engine)
 }
