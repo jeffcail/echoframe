@@ -1,13 +1,11 @@
 Debug: true
 HTTPBind: :8090
 Mysql:
-#  DbDsn: root:123456@tcp(127.0.0.1:3306)/echo_scaffolding?charset=utf8mb4
-  DbDsn: root:123456@tcp(192.168.0.184:3306)/business-wallet?charset=utf8mb4
+  DbDsn: root:123456@tcp(127.0.0.1:3306)/echo_scaffolding?charset=utf8mb4
   ShowSql: true
 Redis:
-#  RedisAddr: 127.0.0.1:7379
-  RedisAddr: 192.168.0.184:7379
-  Password: cKdHKdXl
+  RedisAddr: 127.0.0.1:7379
+  Password: 123456
   RedisDb: 1
 Logger:
   Path: ./log/echo-scaffolding.log
