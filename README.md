@@ -15,7 +15,7 @@
     - [7. API统一格式返回](#API统一格式返回)
     - [8. 数据库](#数据库)  支持mysql
     - [9. XORM](#数据库)
-    - [10. 根据数据库自动生成go struct](#根据数据库自动生成go struct)
+    - [10. 根据数据库自动生成go对应struct](#根据数据库自动生成go对应struct)
     - [11. Redis](#Redis)
 # 关于我
 一只孤独的饮酒客...
@@ -217,7 +217,7 @@ if err != nil {
 log.Println(err)
 ```
 
-### 根据数据库自动生成go struct
+### 根据数据库自动生成go对应struct
 ```shell
 go get github.com/go-xorm/cmd/xorm
 go get github.com/go-xorm/xorm
