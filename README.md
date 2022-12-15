@@ -12,11 +12,11 @@
     - [4. 请求日志](#请求日志)
     - [5. GOMAXPROCS](#GOMAXPROCS)
     - [6. HTTP请求](#HTTP请求)
-    - [7. API统一格式返回支持json、xml](#API统一格式返回支持json、xml)
+    - [7. API统一格式返回支持jsonxml](#API统一格式返回支持jsonxml)
     - [8. 参数校验](#参数校验)  
     - [9. 数据库支持mysql](#数据库支持mysql)  
     - [10. XORM](#XORM)
-    - [11. 根据数据库自动生成go,struct](#根据数据库自动生成go,struct)
+    - [11. 根据数据库自动生成gostruct](#根据数据库自动生成gostruct)
     - [12. Redis](#Redis)
 # 关于我
 一只孤独的饮酒客...
@@ -185,7 +185,7 @@ IsEnableGOMAXPROCS: false
 ### HTTP请求
 集成了HTTP请求.支持常用的请求方式GET、POST.具体使用详情查看<a href="https://github.com/jeffcail/gorequest" target="_blank">gorequest</a>
 
-### API统一格式返回支持json、xml
+### API统一格式返回支持jsonxml
 json
 ```go
 return utils.ToJson(c, utils.Res.Response(false, msg, code.FAILED))
@@ -249,7 +249,7 @@ if err != nil {
 log.Println(err)
 ```
 
-### 根据数据库自动生成go对应struct
+### 根据数据库自动生成gostruct
 ```shell
 go get github.com/go-xorm/cmd/xorm
 go get github.com/go-xorm/xorm
