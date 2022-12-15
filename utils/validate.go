@@ -7,13 +7,12 @@ import (
 
 var (
 	msg string
-	err error
 )
 
 // ValidateParam
 func ValidateParam(param interface{}) string {
 	translator, validate := validate2.Bv.BindValidate()
-	err = validate.Struct(param)
+	err := validate.Struct(param)
 	if err != nil {
 		errs := err.(validator.ValidationErrors)
 		for _, er := range errs {
