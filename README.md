@@ -12,11 +12,11 @@
     - [4. 请求日志](#请求日志)
     - [5. GOMAXPROCS](#GOMAXPROCS)
     - [6. HTTP请求](#HTTP请求)
-    - [7. API统一格式返回 支持json、xml](#API统一格式返回,支持json、xml)
+    - [7. API统一格式返回,支持json、xml](#API统一格式返回,支持json、xml)
     - [8. 参数校验](#参数校验)  
-    - [9. 数据库 支持mysql](#数据库,支持mysql)  
-    - [10. XORM](#数据库)
-    - [11. 根据数据库自动生成go struct](#根据数据库自动生成gostruct)
+    - [9. 数据库,支持mysql](#数据库,支持mysql)  
+    - [10. XORM](#XORM)
+    - [11. 根据数据库自动生成go,struct](#根据数据库自动生成go,struct)
     - [12. Redis](#Redis)
 # 关于我
 一只孤独的饮酒客...
