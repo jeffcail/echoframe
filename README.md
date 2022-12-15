@@ -12,10 +12,11 @@
     - [4. 请求日志](#请求日志)
     - [5. GOMAXPROCS](#GOMAXPROCS)
     - [6. HTTP请求](#HTTP请求)
-    - [7. API统一格式返回](#API统一格式返回)
-    - [8. 数据库](#数据库)  支持mysql
-    - [9. XORM](#数据库)
-    - [10. 根据数据库自动生成go struct](#根据数据库自动生成go struct)
+    - [7. API统一格式返回 支持json、xml](#API统一格式返回,支持json、xml)
+    - [8. 参数校验](#参数校验)  
+    - [9. 数据库 支持mysql](#数据库,支持mysql)  
+    - [10. XORM](#数据库)
+    - [11. 根据数据库自动生成go struct](#根据数据库自动生成go struct)
 # 关于我
 一只孤独的饮酒客...
 
@@ -182,10 +183,41 @@ IsEnableGOMAXPROCS: false
 ### HTTP请求
 集成了HTTP请求.支持常用的请求方式GET、POST.具体使用详情查看<a href="https://github.com/jeffcail/gorequest" target="_blank">gorequest</a>
 
-### API统一格式返回
-common/code 定义状态码目录
+### API统一格式返回,支持json、xml
+json
+```go
+return utils.ToJson(c, utils.Res.Response(false, msg, code.FAILED))
+```
 
-### 数据库
+xml
+```go
+return utils.ToXml(c, utils.Res.Response(false, msg, code.FAILED))
+```
+
+### 参数校验
+用法
+```go
+// CreateUserInput
+type CreateUserInput struct {
+	Username string `json:"username" form:"username" validate:"required"`
+	Password string `json:"password" form:"password" validate:"required,gte=6,lte=12"`
+}
+
+// CreateUser
+func CreateUser(c echo.Context) error {
+    param := &CreateUserInput{}
+    _ = c.Bind(param)
+    msg := utils.ValidateParam(param)
+    if msg != "" {
+    return utils.ToJson(c, utils.Res.Response(false, msg, code.FAILED))
+    }
+    return nil
+}
+
+```
+
+
+### 数据库,支持mysql
 使用
 ```go
 db.Mysql.Table()

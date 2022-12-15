@@ -1,7 +1,10 @@
 package utils
 
 import (
+	"net/http"
 	"time"
+
+	"github.com/labstack/echo/v4"
 
 	_estime "github.com/echo-scaffolding/common/estime"
 )
@@ -10,7 +13,7 @@ var Res *Result
 
 type Result struct {
 	Lasting string      `json:"lasting"`
-	Status  bool        `json:"success"`
+	Status  bool        `json:"status"`
 	Code    int         `json:"code"`
 	Message string      `json:"msg"`
 	Data    interface{} `json:"data"`
@@ -22,8 +25,16 @@ func (r *Result) Response(status bool, message string, code int, data ...interfa
 		Status:  status,
 		Code:    code,
 		Message: message,
-		Data:    data[0],
+		Data:    data,
 	}
+}
+
+func ToJson(c echo.Context, res *Result) error {
+	return c.JSON(http.StatusOK, res)
+}
+
+func ToXml(c echo.Context, res *Result) error {
+	return c.XML(http.StatusOK, res)
 }
 
 var ResP *PageList

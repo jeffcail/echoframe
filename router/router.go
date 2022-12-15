@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	handleruser "github.com/echo-scaffolding/internal/handler/user"
+
 	"github.com/echo-scaffolding/conf"
 
 	_middle "github.com/echo-scaffolding/common/middle"
@@ -17,8 +19,6 @@ import (
 	uber "github.com/echo-scaffolding/pkg/uber"
 
 	"github.com/labstack/echo/v4/middleware"
-
-	handlerorder "github.com/echo-scaffolding/internal/handler/order"
 
 	"github.com/labstack/echo/v4"
 )
@@ -43,9 +43,13 @@ func RunHttpServer() {
 	e.Use(_middle.ReqLog())
 	e.Use(middleware.BodyDumpWithConfig(_middle.DefaultBodyDumpConfig))
 
-	orderGroup := e.Group("/v1/order")
+	user := e.Group("/v1/user")
 	{
-		orderGroup.GET("/detail", handlerorder.Detail)
+		user.POST("/create", handleruser.CreateUser)
+		user.GET("/detail:id", handleruser.UserDetail)
+		user.POST("/update", handleruser.UpdateUser)
+		user.DELETE("/delete", handleruser.DelUser)
+		user.POST("/list", handleruser.UserList)
 	}
 
 	e.GET("/ping", func(c echo.Context) error {

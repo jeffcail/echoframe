@@ -12,3 +12,7 @@ type User struct {
 	UpdatedAt time.Time `xorm:"not null default 'CURRENT_TIMESTAMP' comment('更新时间') TIMESTAMP"`
 	Version   int64     `xorm:"not null comment('版本号') BIGINT"`
 }
+
+func (u *User) TableName() string {
+	return "user"
+}
