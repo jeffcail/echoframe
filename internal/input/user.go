@@ -4,4 +4,6 @@ package input
 type CreateUserInput struct {
 	Username string `json:"username" form:"username" validate:"required"`
 	Password string `json:"password" form:"password" validate:"required,gte=6,lte=12"`
+	Phone    string `json:"phone" validate:"required"`
+	Email    string `json:"email" validate:"required,email"`
 }

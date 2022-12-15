@@ -9,6 +9,7 @@ import (
 type CoreConfig struct {
 	Debug    bool
 	HTTPBind string
+	Slat     string
 	Mysql    driver.MysqlConfig
 	Redis    driver.RedisConfig
 	Logger   struct {

@@ -20,12 +20,18 @@ type Result struct {
 }
 
 func (r *Result) Response(status bool, message string, code int, data ...interface{}) *Result {
+	var d interface{}
+	if data != nil {
+		d = data[0]
+	} else {
+		d = data
+	}
 	return &Result{
-		Lasting: time.Now().Format(_estime.LAYOUT),
+		Lasting: _estime.FormatTime(time.Now()),
 		Status:  status,
 		Code:    code,
 		Message: message,
-		Data:    data,
+		Data:    d,
 	}
 }
 

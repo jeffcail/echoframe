@@ -13,6 +13,8 @@ import (
 	"io"
 	"os"
 
+	"github.com/echo-scaffolding/conf"
+
 	"github.com/echo-scaffolding/pkg/uber"
 
 	"golang.org/x/crypto/md4"
@@ -125,4 +127,9 @@ func FileMd5(file string) (string, error) {
 	}
 	md5Str := hex.EncodeToString(hash.Sum(nil))
 	return md5Str, nil
+}
+
+// GeneratePasswd
+func GeneratePasswd(str string) string {
+	return Sha256(fmt.Sprintf("%s%s", Md5(str), conf.Config.Slat))
 }
