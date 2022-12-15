@@ -2,26 +2,34 @@ package db
 
 import (
 	"log"
+	"sync"
 	"time"
 
 	"github.com/go-xorm/xorm"
 )
 
-var Mysql *xorm.Engine
+var (
+	instance *xorm.Engine
+	one      sync.Once
+	Mysql    *MysqlEngine
+)
 
 type MysqlEngine struct{}
 
 // NewMysqlEngine
 func NewMysqlEngine() *MysqlEngine {
-	return &MysqlEngine{}
+	one.Do(func() {
+		Mysql = &MysqlEngine{}
+	})
+	return Mysql
 }
 
 // SetMysql
 func (m *MysqlEngine) SetMysql(e *xorm.Engine) {
-	Mysql = e
+	instance = e
 	go func() {
 		for {
-			Mysql.Ping()
+			instance.Ping()
 			time.Sleep(1 * time.Hour)
 		}
 	}()
@@ -29,7 +37,7 @@ func (m *MysqlEngine) SetMysql(e *xorm.Engine) {
 
 // Transaction
 func (m *MysqlEngine) Transaction(fs ...func(s *xorm.Session) error) error {
-	session := Mysql.NewSession()
+	session := instance.NewSession()
 	session.Begin()
 	for _, f := range fs {
 		err := f(session)

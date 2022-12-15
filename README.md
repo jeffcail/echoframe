@@ -12,11 +12,19 @@
     - [4. 请求日志](#请求日志)
     - [5. GOMAXPROCS](#GOMAXPROCS)
     - [6. HTTP请求](#HTTP请求)
+<<<<<<< HEAD
     - [7. API统一格式返回 支持json、xml](#API统一格式返回,支持json、xml)
     - [8. 参数校验](#参数校验)  
     - [9. 数据库 支持mysql](#数据库,支持mysql)  
     - [10. XORM](#数据库)
     - [11. 根据数据库自动生成go struct](#根据数据库自动生成go struct)
+=======
+    - [7. API统一格式返回](#API统一格式返回)
+    - [8. 数据库](#数据库)  支持mysql
+    - [9. XORM](#数据库)
+    - [10. 根据数据库自动生成go对应struct](#根据数据库自动生成go对应struct)
+    - [11. Redis](#Redis)
+>>>>>>> f998ae135a352e82cfaba0a27bc627576cb66cfd
 # 关于我
 一只孤独的饮酒客...
 
@@ -55,7 +63,7 @@ go run echo-scaffolding
 * 快速上手、快速开发、快速交付
 * 高性能、高扩展，避免重复造轮子
 
-## 技术点对应文档
+## 技术栈和对应的包
 * ini: https://github.com/go-ini/ini
 * viper: https://github.com/spf13/viper
 * Nacos: https://nacos.io/zh-cn/
@@ -67,6 +75,7 @@ go run echo-scaffolding
 * gorequest: https://github.com/jeffcail/gorequest
 * mysql: github.com/go-sql-driver/mysql  
 * xorm: https://github.com/go-xorm/xorm
+* Redis: gopkg.in/redis.v5
 
 ## 职责
 
@@ -225,7 +234,7 @@ db.Mysql.Table()
 
 开启事物
 ```go
-err := db.NewMysqlEngine().Transaction(func(s *xorm.Session) error {
+err := db.Mysql.Transaction(func(s *xorm.Session) error {
     insert, err := s.Insert(data)
     if err != nil {
     return err
@@ -247,7 +256,7 @@ if err != nil {
 log.Println(err)
 ```
 
-### 根据数据库自动生成go struct
+### 根据数据库自动生成go对应struct
 ```shell
 go get github.com/go-xorm/cmd/xorm
 go get github.com/go-xorm/xorm
@@ -262,4 +271,10 @@ go build
 修改脚本里面的数据连接信息和数据库名字
 ```shell
 ./sqlToStruct.sh
+```
+
+### Redis
+用法
+```go
+db.Rc.Set("a", 10, -1)
 ```

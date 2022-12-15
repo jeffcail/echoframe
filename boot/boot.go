@@ -6,7 +6,6 @@ import (
 	"os"
 
 	_procs "github.com/echo-scaffolding/common/procs"
-
 	"github.com/spf13/viper"
 )
 
@@ -22,6 +21,13 @@ const (
 var (
 	LoadErr = errors.New("the main configuration file is missing a parameter")
 )
+
+// Boot
+func Boot() {
+	InitLogger()
+	InitMysql()
+	InstanceRedis()
+}
 
 type ApplicationConf struct {
 	Local              bool
@@ -135,12 +141,6 @@ func init() {
 			}
 		}
 	}
-}
-
-// Boot
-func Boot() {
-	InitLogger()
-	InitMysql()
 }
 
 func cmd() {
