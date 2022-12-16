@@ -48,7 +48,7 @@ func RunHttpServer() {
 		user.POST("/create", handleruser.CreateUser)
 		user.GET("/detail/:id", handleruser.UserDetail)
 		user.POST("/update", handleruser.UpdateUser)
-		user.DELETE("/delete", handleruser.DelUser)
+		user.DELETE("/delete/:id", handleruser.DelUser)
 		user.POST("/list", handleruser.UserList)
 	}
 

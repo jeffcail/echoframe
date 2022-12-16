@@ -39,18 +39,42 @@ func UserDetail(c echo.Context) error {
 
 // UpdateUser
 func UpdateUser(c echo.Context) error {
-
-	return nil
+	param := &input.UpdateUserInput{}
+	_ = c.Bind(param)
+	msg := utils.ValidateParam(param)
+	if msg != "" {
+		return utils.ToJson(c, utils.Res.Response(false, msg, code.FAILED))
+	}
+	if err := serviceuser.UpdateUser(param); err != nil {
+		return utils.ToJson(c, utils.Res.Response(false, cast.ToString(err), code.FAILED))
+	}
+	return utils.ToJson(c, utils.Res.Response(true, "success", code.SUCCESS))
 }
 
 // DelUser
 func DelUser(c echo.Context) error {
-
-	return nil
+	id := c.Param("id")
+	if id == "" {
+		return utils.ToJson(c, utils.Res.Response(false, "参数不完整", code.FAILED))
+	}
+	d := cast.ToInt64(id)
+	if err := serviceuser.DelUser(d); err != nil {
+		return utils.ToJson(c, utils.Res.Response(false, cast.ToString(err), code.FAILED))
+	}
+	return utils.ToJson(c, utils.Res.Response(true, "success", code.SUCCESS))
 }
 
 // UserList
 func UserList(c echo.Context) error {
-
-	return nil
+	param := &input.UserListInput{}
+	_ = c.Bind(param)
+	msg := utils.ValidateParam(param)
+	if msg != "" {
+		return utils.ToJson(c, utils.Res.Response(false, msg, code.FAILED))
+	}
+	count, outs, err := serviceuser.UserList(param)
+	if err != nil {
+		return utils.ToJson(c, utils.Res.Response(false, cast.ToString(err), code.FAILED))
+	}
+	return utils.ToJson(c, utils.Res.Response(true, "success", code.SUCCESS, utils.ResP.Pagination(count, outs)))
 }
