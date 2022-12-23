@@ -23,6 +23,7 @@ type CoreConfig struct {
 		EXPIRE int64
 		SECRET string
 	}
+	LevelDBPath string
 }
 
 var Config *CoreConfig

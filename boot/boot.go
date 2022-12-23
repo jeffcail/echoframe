@@ -27,6 +27,7 @@ func Boot() {
 	InitLogger()
 	InitMysql()
 	InstanceRedis()
+	InitLevelDB()
 }
 
 type ApplicationConf struct {

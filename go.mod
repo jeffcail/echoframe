@@ -17,9 +17,12 @@ require (
 require (
 	github.com/denisenkom/go-mssqldb v0.10.0 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
+	github.com/jeffcail/leveldb v1.0.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/lib/pq v1.10.2 // indirect
 	github.com/mattn/go-sqlite3 v1.14.8 // indirect
+	github.com/syndtr/goleveldb v1.0.0 // indirect
 	xorm.io/builder v0.3.9 // indirect
 	xorm.io/core v0.7.2-0.20190928055935-90aeac8d08eb // indirect
 )

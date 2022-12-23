@@ -17,3 +17,4 @@ Logger:
 Jwt:
   Expire: 3600
   SECRET: 90fc4956fb1d4f0f963d8cc2a3bf86e934234223423
+LevelDBPath: ./leveldb_data
