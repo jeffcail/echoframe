@@ -19,6 +19,7 @@
     - [11. 根据数据库自动生成gostruct](#根据数据库自动生成gostruct)
     - [12. Redis](#Redis)
     - [13. 支持md5、md4、sha256、sha512、文件加密、aes对称加密](#加密)
+    - [14. Jwt Token认证、鉴权中间件](#JWT)
 # 关于我
 一只孤独的饮酒客...
 
@@ -70,6 +71,7 @@ go run echo-scaffolding
 * mysql: github.com/go-sql-driver/mysql  
 * xorm: https://github.com/go-xorm/xorm
 * Redis: gopkg.in/redis.v5
+* Jwt: github.com/dgrijalva/jwt-go
 
 ## 职责
 
@@ -277,3 +279,7 @@ db.Rc.Set("a", 10, -1)
 项目中需要对用户的敏感数据进行加密之后存储。如密码、身份信息、敏感文件等。
 保证在数据传输中数据被劫持之后不被破解，需要对api接口签名。
 支持md5、md4、sha256、sha512、文件加密、aes对称加密
+
+
+### JWT
+参考auth

@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	handlerauth "github.com/echo-scaffolding/internal/handler/auth"
+
 	handleruser "github.com/echo-scaffolding/internal/handler/user"
 
 	"github.com/echo-scaffolding/conf"
@@ -42,6 +44,11 @@ func RunHttpServer() {
 
 	e.Use(_middle.ReqLog())
 	e.Use(middleware.BodyDumpWithConfig(_middle.DefaultBodyDumpConfig))
+
+	auth := e.Group("/v1/auth")
+	{
+		auth.POST("/login", handlerauth.AuthLogin)
+	}
 
 	user := e.Group("/v1/user")
 	{

@@ -19,6 +19,10 @@ type CoreConfig struct {
 		Compress  bool
 		LocalTime bool
 	}
+	Jwt struct {
+		EXPIRE int64
+		SECRET string
+	}
 }
 
 var Config *CoreConfig
