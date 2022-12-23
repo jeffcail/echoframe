@@ -21,6 +21,7 @@
     - [13. 支持md5、md4、sha256、sha512、文件加密、aes对称加密](#加密)
     - [14. Jwt Token认证、鉴权中间件](#JWT)
     - [15. LevelDB](#LevelDB)
+    - [16. MongoDB](#MongoDB)
 # 关于我
 一只孤独的饮酒客...
 
@@ -74,6 +75,7 @@ go run echo-scaffolding
 * Redis: gopkg.in/redis.v5
 * Jwt: github.com/dgrijalva/jwt-go
 * LevelDB: https://github.com/jeffcail/leveldb
+* MongoDB: go.mongodb.org/mongo-driver/mongo
 
 ## 职责
 
@@ -288,3 +290,8 @@ db.Rc.Set("a", 10, -1)
 
 ### LevelDB
 具体用法参考 https://github.com/jeffcail/leveldb
+
+### MongoDB
+```go
+db.Mongo
+```

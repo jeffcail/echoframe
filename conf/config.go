@@ -24,6 +24,7 @@ type CoreConfig struct {
 		SECRET string
 	}
 	LevelDBPath string
+	MongoDB     string
 }
 
 var Config *CoreConfig
