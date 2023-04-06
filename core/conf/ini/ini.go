@@ -36,6 +36,12 @@ func LoadCoreConfig(path string) *conf.CoreConfig {
 		log.Fatal(fmt.Sprintf("Fail to get section 'logger': %v", err))
 	}
 
+	// jwt
+	j, err := cfg.GetSection("Jwt")
+	if err != nil {
+		log.Fatal(fmt.Sprintf("Fail to get section 'logger': %v", err))
+	}
+
 	conf.NewCoreConfig()
 	conf.Config.Debug = cfg.Section("").Key("RUN_MODE").MustBool()
 	conf.Config.HTTPBind = cfg.Section("").Key("HTTPBind").MustString("")
@@ -49,6 +55,10 @@ func LoadCoreConfig(path string) *conf.CoreConfig {
 	conf.Config.Logger.MaxAge = l.Key("MaxAge").MustInt()
 	conf.Config.Logger.Compress = l.Key("Compress").MustBool()
 	conf.Config.Logger.LocalTime = l.Key("LocalTime").MustBool()
+	conf.Config.Jwt.EXPIRE = j.Key("Expire").MustInt64()
+	conf.Config.Jwt.SECRET = j.Key("SECRET").MustString("")
+	conf.Config.LevelDBPath = cfg.Section("").Key("LevelDBPath").MustString("")
+	conf.Config.MongoDB = cfg.Section("").Key("MongoDB").MustString("")
 	conf.Config.EsUrl = cfg.Section("").Key("EsUrl").MustString("")
 	return conf.Config
 }
