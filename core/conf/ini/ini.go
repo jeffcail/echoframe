@@ -31,7 +31,7 @@ func LoadCoreConfig(path string) *conf.CoreConfig {
 	}
 
 	// l
-	l, err := cfg.GetSection("redis")
+	l, err := cfg.GetSection("Logger")
 	if err != nil {
 		log.Fatal(fmt.Sprintf("Fail to get section 'logger': %v", err))
 	}
@@ -49,6 +49,6 @@ func LoadCoreConfig(path string) *conf.CoreConfig {
 	conf.Config.Logger.MaxAge = l.Key("MaxAge").MustInt()
 	conf.Config.Logger.Compress = l.Key("Compress").MustBool()
 	conf.Config.Logger.LocalTime = l.Key("LocalTime").MustBool()
-
+	conf.Config.EsUrl = cfg.Section("").Key("EsUrl").MustString("")
 	return conf.Config
 }

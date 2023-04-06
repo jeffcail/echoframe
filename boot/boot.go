@@ -29,6 +29,7 @@ func Boot() {
 	InstanceRedis()
 	InitLevelDB()
 	InitMongoDB()
+	InitEs()
 }
 
 type ApplicationConf struct {
