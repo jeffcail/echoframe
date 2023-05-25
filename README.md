@@ -1,6 +1,6 @@
 [TOC]- [关于我](#关于我)
 - [关于我](#关于我)
-- [echo-scaffolding](#echo-scaffolding)
+- [echoframe](#echoframe)
   - [简介](#简介)
   - [安装](#安装)
   - [目的及优势](#目的及优势)
@@ -28,7 +28,7 @@
 
 **持续更新中，喜欢的可以点个star。欢迎贡献代码**
 
-github地址: <a href="https://github.com/jeffcail/echo-scaffolding" target="_blank">echo-scaffolding</a>
+github地址: <a href="https://github.com/jeffcail/echoframe" target="_blank">echoframe</a>
 
 个人博客地址: <a href="https://blog.caixiaoxin.cn/?p=757" target="_blank">太阳上的雨天</a>
 
@@ -36,7 +36,7 @@ CSDN: <a href="caixiaoxin.blog.csdn.net">太阳上的雨天></a>
 
 知乎: <a href="https://www.zhihu.com/people/cai-cai-55-44-82">太阳上的雨天</a>
 
-# echo-scaffolding
+# echoframe
 
 
 
@@ -45,15 +45,15 @@ Echo best scaffolding.Fllowing me. Let's go
 基于echo框架，搭建一个最好用的脚手架。
 
 ## 安装
-安装完之后名字echo-scaffolding可改，可根据自己的需求精简或者添加架子结构。也可直接使用
+安装完之后名字echoframe可改，可根据自己的需求精简或者添加架子结构。也可直接使用
 ```shell
-git clone https://github.com/jeffcail/echo-scaffolding.git
+git clone https://github.com/jeffcail/echoframe.git
 
-cd echo-scaffolding
+cd echoframe
 
 go mod tidy
 
-go run echo-scaffolding
+go run main.go
 ```
 
 ## 目的及优势
@@ -107,13 +107,13 @@ Redis:
   RedisAddr: 127.0.0.1:7379
   Password: 123456
   RedisDb: 0
-LoggerPath: ./log/echo-scaffolding.log
+LoggerPath: ./log/echoframe.log
 ```
 ```go
 fmt.Println(conf.Config)
 ```
 ```shell
-go run echo-scaffolding.go -ip 127.0.0.1 -p 7848 -c echo-scaffolding.yml -g echo-scaffolding
+go run echoframe.go -ip 127.0.0.1 -p 7848 -c echoframe.yml -g echoframe
 ```
 
 
