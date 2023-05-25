@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/conf"
 	"github.com/golang-jwt/jwt"
 )
 

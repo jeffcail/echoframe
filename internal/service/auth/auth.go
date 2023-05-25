@@ -3,14 +3,14 @@ package serviceauth
 import (
 	"fmt"
 
-	"github.com/echo-scaffolding/internal/out"
+	"github.com/echoframe/internal/out"
 
-	"github.com/echo-scaffolding/pkg/jwt"
+	"github.com/echoframe/pkg/jwt"
 
-	"github.com/echo-scaffolding/pkg/uber"
+	"github.com/echoframe/pkg/uber"
 
-	daoauth "github.com/echo-scaffolding/internal/dao/auth"
-	"github.com/echo-scaffolding/internal/input"
+	daoauth "github.com/echoframe/internal/dao/auth"
+	"github.com/echoframe/internal/input"
 	"go.uber.org/zap"
 )
 

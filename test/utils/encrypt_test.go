@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/echo-scaffolding/utils"
+	"github.com/echoframe/utils"
 )
 
 func TestAesBase64Encrypt(t *testing.T) {

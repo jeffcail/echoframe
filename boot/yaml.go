@@ -1,6 +1,6 @@
 package boot
 
-import confyaml "github.com/echo-scaffolding/conf/yaml"
+import confyaml "github.com/echoframe/conf/yaml"
 
 //InitYaml
 func InitYaml(path string) {

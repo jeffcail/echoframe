@@ -6,23 +6,21 @@ import (
 	"net/http"
 	"time"
 
-	handlerauth "github.com/echo-scaffolding/internal/handler/auth"
+	handlerauth "github.com/echoframe/internal/handler/auth"
 
-	handleruser "github.com/echo-scaffolding/internal/handler/user"
+	handleruser "github.com/echoframe/internal/handler/user"
 
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/conf"
 
-	_middle "github.com/echo-scaffolding/common/middle"
+	_middle "github.com/echoframe/common/middle"
 
-	_echo "github.com/echo-scaffolding/pkg/echo"
+	_echo "github.com/echoframe/pkg/echo"
 
 	"go.uber.org/zap"
 
-	uber "github.com/echo-scaffolding/pkg/uber"
+	uber "github.com/echoframe/pkg/uber"
 
 	"github.com/labstack/echo/v4/middleware"
-
-	"github.com/labstack/echo/v4"
 )
 
 //RunHttpServer

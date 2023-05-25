@@ -1,9 +1,9 @@
 package boot
 
 import (
-	"github.com/echo-scaffolding/common/db"
-	"github.com/echo-scaffolding/conf"
-	_redis "github.com/echo-scaffolding/pkg/redis"
+	"github.com/echoframe/common/db"
+	"github.com/echoframe/conf"
+	_redis "github.com/echoframe/pkg/redis"
 )
 
 // InstanceRedis

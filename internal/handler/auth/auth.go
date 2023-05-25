@@ -1,11 +1,10 @@
 package handlerauth
 
 import (
-	"github.com/echo-scaffolding/common/code"
-	"github.com/echo-scaffolding/internal/input"
-	serviceauth "github.com/echo-scaffolding/internal/service/auth"
-	"github.com/echo-scaffolding/utils"
-	"github.com/labstack/echo/v4"
+	"github.com/echoframe/common/code"
+	"github.com/echoframe/internal/input"
+	serviceauth "github.com/echoframe/internal/service/auth"
+	"github.com/echoframe/utils"
 	"github.com/spf13/cast"
 )
 

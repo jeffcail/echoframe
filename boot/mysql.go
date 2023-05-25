@@ -1,9 +1,9 @@
 package boot
 
 import (
-	"github.com/echo-scaffolding/common/db"
-	"github.com/echo-scaffolding/common/global"
-	_xorm "github.com/echo-scaffolding/pkg/xorm"
+	"github.com/echoframe/common/db"
+	"github.com/echoframe/common/global"
+	_xorm "github.com/echoframe/pkg/xorm"
 	"github.com/go-xorm/xorm"
 )
 

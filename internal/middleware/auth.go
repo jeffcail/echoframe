@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/echo-scaffolding/common/code"
+	"github.com/echoframe/common/code"
 
-	"github.com/echo-scaffolding/pkg/jwt"
-	"github.com/echo-scaffolding/pkg/uber"
-	"github.com/echo-scaffolding/utils"
-	"github.com/labstack/echo/v4"
+	"github.com/echoframe/pkg/jwt"
+	"github.com/echoframe/pkg/uber"
+	"github.com/echoframe/utils"
 )
 
 // AuthCheck

@@ -6,8 +6,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/echo-scaffolding/pkg/uber"
-	"github.com/labstack/echo/v4"
+	"github.com/echoframe/pkg/uber"
 	"go.uber.org/zap"
 )
 

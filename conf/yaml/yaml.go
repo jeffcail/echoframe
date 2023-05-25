@@ -1,8 +1,8 @@
 package confyaml
 
 import (
-	"github.com/echo-scaffolding/conf"
-	_yaml "github.com/echo-scaffolding/core/conf/yaml"
+	"github.com/echoframe/conf"
+	_yaml "github.com/echoframe/core/conf/yaml"
 )
 
 //YamlConfig

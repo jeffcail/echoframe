@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/echo-scaffolding/pkg/uber"
+	"github.com/echoframe/pkg/uber"
 	"github.com/olivere/elastic"
 )
 

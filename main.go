@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/echo-scaffolding/boot"
-	"github.com/echo-scaffolding/router"
+	"github.com/echoframe/boot"
+	"github.com/echoframe/router"
 )
 
 func main() {

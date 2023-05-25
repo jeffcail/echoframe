@@ -1,7 +1,7 @@
 package boot
 
 import (
-	confini "github.com/echo-scaffolding/conf/ini"
+	confini "github.com/echoframe/conf/ini"
 )
 
 //InitIni

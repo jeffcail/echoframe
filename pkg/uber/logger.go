@@ -5,13 +5,12 @@ import (
 	"os"
 	"sync"
 
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/conf"
 
-	_estime "github.com/echo-scaffolding/common/estime"
+	_estime "github.com/echoframe/common/estime"
 	"github.com/robfig/cron"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"gopkg.in/natefinch/lumberjack.v2"
 )
 
 var EchoScaLog *zap.Logger

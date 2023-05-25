@@ -1,7 +1,7 @@
 package confini
 
 import (
-	_ini "github.com/echo-scaffolding/core/conf/ini"
+	_ini "github.com/echoframe/core/conf/ini"
 )
 
 //ParseIniConfig

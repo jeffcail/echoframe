@@ -1,7 +1,7 @@
 package _echo
 
 import (
-	_uber "github.com/echo-scaffolding/pkg/uber"
+	_uber "github.com/echoframe/pkg/uber"
 	"go.uber.org/zap"
 )
 

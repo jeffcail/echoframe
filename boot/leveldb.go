@@ -1,8 +1,8 @@
 package boot
 
 import (
-	"github.com/echo-scaffolding/common/db"
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/common/db"
+	"github.com/echoframe/conf"
 	leveldb1 "github.com/jeffcail/leveldb"
 )
 

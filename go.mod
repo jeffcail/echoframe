@@ -1,4 +1,4 @@
-module github.com/echo-scaffolding
+module github.com/echoframe
 
 go 1.17
 

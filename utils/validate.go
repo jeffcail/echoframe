@@ -1,7 +1,7 @@
 package utils
 
 import (
-	validate2 "github.com/echo-scaffolding/pkg/validate"
+	validate2 "github.com/echoframe/pkg/validate"
 	"github.com/go-playground/validator/v10"
 )
 

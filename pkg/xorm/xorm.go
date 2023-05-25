@@ -1,8 +1,8 @@
 package _xorm
 
 import (
-	"github.com/echo-scaffolding/common/global"
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/common/global"
+	"github.com/echoframe/conf"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 )

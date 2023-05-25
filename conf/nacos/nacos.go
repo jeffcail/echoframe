@@ -3,9 +3,9 @@ package confnacos
 import (
 	"flag"
 
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/conf"
 
-	_nacos "github.com/echo-scaffolding/core/conf/nacos"
+	_nacos "github.com/echoframe/core/conf/nacos"
 )
 
 var (

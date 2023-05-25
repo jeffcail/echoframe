@@ -13,9 +13,9 @@ import (
 	"io"
 	"os"
 
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/conf"
 
-	"github.com/echo-scaffolding/pkg/uber"
+	"github.com/echoframe/pkg/uber"
 
 	"golang.org/x/crypto/md4"
 )

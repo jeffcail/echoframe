@@ -1,8 +1,7 @@
 package _redis
 
 import (
-	"github.com/echo-scaffolding/common/global"
-	"gopkg.in/redis.v5"
+	"github.com/echoframe/common/global"
 )
 
 // CreateRedis

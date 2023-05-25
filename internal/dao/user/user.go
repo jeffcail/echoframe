@@ -3,10 +3,10 @@ package daouser
 import (
 	"errors"
 
-	"github.com/echo-scaffolding/common/db"
-	"github.com/echo-scaffolding/internal/input"
-	"github.com/echo-scaffolding/internal/v1/models"
-	"github.com/echo-scaffolding/utils"
+	"github.com/echoframe/common/db"
+	"github.com/echoframe/internal/input"
+	"github.com/echoframe/internal/v1/models"
+	"github.com/echoframe/utils"
 	"github.com/go-xorm/xorm"
 )
 

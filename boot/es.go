@@ -1,6 +1,6 @@
 package boot
 
-import "github.com/echo-scaffolding/pkg/es"
+import "github.com/echoframe/pkg/es"
 
 // InitEs
 func InitEs(url string) {

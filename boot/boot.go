@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	_procs "github.com/echo-scaffolding/common/procs"
+	_procs "github.com/echoframe/common/procs"
 	"github.com/spf13/viper"
 )
 

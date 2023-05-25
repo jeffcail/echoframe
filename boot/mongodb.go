@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/echo-scaffolding/common/db"
+	"github.com/echoframe/common/db"
 
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/conf"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

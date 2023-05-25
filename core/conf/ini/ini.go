@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/echo-scaffolding/conf"
+	"github.com/echoframe/conf"
 
 	"github.com/go-ini/ini"
 )

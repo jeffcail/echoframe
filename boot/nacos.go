@@ -1,7 +1,7 @@
 package boot
 
 import (
-	confnacos "github.com/echo-scaffolding/conf/nacos"
+	confnacos "github.com/echoframe/conf/nacos"
 )
 
 func InitNacos() {

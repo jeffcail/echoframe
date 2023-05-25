@@ -1,11 +1,10 @@
 package handleruser
 
 import (
-	"github.com/echo-scaffolding/common/code"
-	"github.com/echo-scaffolding/internal/input"
-	serviceuser "github.com/echo-scaffolding/internal/service/user"
-	"github.com/echo-scaffolding/utils"
-	"github.com/labstack/echo/v4"
+	"github.com/echoframe/common/code"
+	"github.com/echoframe/internal/input"
+	serviceuser "github.com/echoframe/internal/service/user"
+	"github.com/echoframe/utils"
 	"github.com/spf13/cast"
 )
 

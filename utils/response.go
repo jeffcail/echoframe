@@ -4,9 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/labstack/echo/v4"
-
-	_estime "github.com/echo-scaffolding/common/estime"
+	_estime "github.com/echoframe/common/estime"
 )
 
 var Res *Result

@@ -1,6 +1,6 @@
 package boot
 
-import _uber "github.com/echo-scaffolding/pkg/uber"
+import _uber "github.com/echoframe/pkg/uber"
 
 // InitLogger
 func InitLogger() {

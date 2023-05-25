@@ -3,7 +3,7 @@ package conf
 import (
 	"sync"
 
-	"github.com/echo-scaffolding/core/conf/driver"
+	"github.com/echoframe/core/conf/driver"
 )
 
 type CoreConfig struct {

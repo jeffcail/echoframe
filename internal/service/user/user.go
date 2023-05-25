@@ -3,13 +3,13 @@ package serviceuser
 import (
 	"fmt"
 
-	"github.com/echo-scaffolding/internal/filter"
+	"github.com/echoframe/internal/filter"
 
-	_estime "github.com/echo-scaffolding/common/estime"
-	daouser "github.com/echo-scaffolding/internal/dao/user"
-	"github.com/echo-scaffolding/internal/input"
-	"github.com/echo-scaffolding/internal/out"
-	"github.com/echo-scaffolding/pkg/uber"
+	_estime "github.com/echoframe/common/estime"
+	daouser "github.com/echoframe/internal/dao/user"
+	"github.com/echoframe/internal/input"
+	"github.com/echoframe/internal/out"
+	"github.com/echoframe/pkg/uber"
 	"go.uber.org/zap"
 )
 

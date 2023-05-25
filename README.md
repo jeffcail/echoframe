@@ -24,7 +24,7 @@
     - [16. MongoDB](#MongoDB)
     - [17. ElasticSearch](#ElasticSearch)
 # 关于我
-一只孤独的饮酒客...
+执着于理想，纯粹与当下...
 
 **持续更新中，喜欢的可以点个star。欢迎贡献代码**
 

@@ -3,8 +3,7 @@ package _middle
 import (
 	"strings"
 
-	"github.com/echo-scaffolding/pkg/uber"
-	"github.com/labstack/echo/v4"
+	"github.com/echoframe/pkg/uber"
 	"github.com/labstack/echo/v4/middleware"
 	"go.uber.org/zap"
 )
