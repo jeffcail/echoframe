@@ -9,7 +9,7 @@ Redis:
   Password: 123456
   RedisDb: 0
 Logger:
-  Path: ./log/echo-scaffolding.log
+  Path: ./log/echoframe.log
   MaxSize: 10240
   MaxAge: 7
   Compress: true
