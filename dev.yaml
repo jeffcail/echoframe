@@ -2,14 +2,14 @@ Debug: true
 HTTPBind: :8090
 Slat: b10adc3749ba50cbbe76e057f20f8876
 Mysql:
-  DbDsn: root:123456@tcp(127.0.0.1:3306)/echo_scaffolding?charset=utf8mb4
+  DbDsn: root:123456@tcp(127.0.0.1:3306)/echoframe?charset=utf8mb4
   ShowSql: true
 Redis:
   RedisAddr: 127.0.0.1:7379
   Password: 123456
   RedisDb: 1
 Logger:
-  Path: ./log/echo-scaffolding.log
+  Path: ./log/echoframe.log
   MaxSize: 10240
   MaxAge: 7
   Compress: true
