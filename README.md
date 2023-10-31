@@ -26,8 +26,6 @@
 # 关于我
 执着于理想，纯粹与当下...
 
-**持续更新中，喜欢的可以点个star。欢迎贡献代码**
-
 github地址: <a href="https://github.com/jeffcail/echoframe" target="_blank">echoframe</a>
 
 个人博客地址: <a href="https://blog.caixiaoxin.cn/?p=757" target="_blank">太阳上的雨天</a>
