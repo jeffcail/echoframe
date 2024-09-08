@@ -1,3 +1,13 @@
+# echoframe
+> 基于echo框架，搭建一个好用的脚手架。
+
+<a href="https://github.com/jeffcail/echoframe/releases">
+    <img src="https://img.shields.io/github/release/echoframe/releases.svg" alt="GitHub release">
+  </a>
+   <a href="https://github.com/jeffcail/echoframe/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+  </a>
+
 [TOC]- [关于我](#关于我)
 - [关于我](#关于我)
 - [echoframe](#echoframe)
@@ -24,7 +34,7 @@
     - [16. MongoDB](#MongoDB)
     - [17. ElasticSearch](#ElasticSearch)
 # 关于我
-执着于理想，纯粹与当下...
+21实际拾荒人
 
 github地址: <a href="https://github.com/jeffcail/echoframe" target="_blank">echoframe</a>
 
@@ -40,7 +50,7 @@ CSDN: <a href="caixiaoxin.blog.csdn.net">太阳上的雨天></a>
 
 ## 简介
 Echo best scaffolding.Fllowing me. Let's go
-基于echo框架，搭建一个最好用的脚手架。
+基于echo框架，搭建一个好用的脚手架。
 
 ## 安装
 安装完之后名字echoframe可改，可根据自己的需求精简或者添加架子结构。也可直接使用
