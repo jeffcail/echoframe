@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mysql:
+    container_name: mysql8
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - TZ=Asia/Shanghai
+      - SET_CONTAINER_TIMEZONE=true
+      - CONTAINER_TIMEZONE=Asia/Shanghai
+    command:
+      --server_id=1
+      --binlog_format=MIXED
+      --slow_query_log=1
+      --slow_query_log_file=/var/log/mysql/mysql-slow.log
+      --long_query_time=3
+      --character-set_server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --innodb_buffer_pool_size=8G
+      --innodb_buffer_pool_instances=8
+      --innodb_buffer_pool_chunk_size=1G
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data/mysql:/var/lib/mysql
+      - ./mysql/logs/mysql:/var/log/mysql
+      - ./mysql/conf/conf.d:/etc/mysql/conf.d # conf.d文件准备参考我的linux安装mysql文档

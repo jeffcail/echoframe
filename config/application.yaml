@@ -1,0 +1,22 @@
+debug: true
+port: :8081
+slat: b10adc3749ba50cbbe76e057f20f8876
+mysql:
+  dsn: root:123456@tcp(127.0.0.1:3306)/database_name?charset=utf8mb4
+  show: true
+redis:
+  addr: 127.0.0.1:7379
+  password: 123456
+  db: 0
+logger:
+  path: ./log/echoframe.log
+  max: 10240
+  live: 7
+  compress: true
+  localTime: true
+jwt:
+  expire: 3600
+  secret: 90fc4956fb1d4f0f963d8cc2a3bf86e934234223423
+leveldb: ./leveldb_data
+mongodb: mongodb://127.0.0.1:27017/?maxPoolSize=20&w=majority
+es: https://127.0.0.1:9200

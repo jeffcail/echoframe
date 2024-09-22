@@ -19,7 +19,6 @@ func init() {
 	flag.Parse()
 }
 
-//InitNacos
 func InitNacos() {
 	conf.NewCoreConfig()
 	_nacos.LoadCoreConfig(*ip, *port, *cfg, *group, conf.Config)

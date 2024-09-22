@@ -1,20 +1,13 @@
-# echoframe
-> 基于echo框架，搭建一个好用的脚手架。
+### <p align="center">EchoFrame</p>
+#### <p align="center">基于echo框架,搭建一个便捷好用的脚手架</p>
+#### <p align="center"><a href="https://github.com/jeffcail/cgncode/releases"><img src="https://img.shields.io/github/release/cgncode/releases.svg" alt="GitHub release"></a><a href="https://github.com/jeffcail/cgncode/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license"></a><p>
+#### <p align="center"><a href="./README.md" target="_blank">简体中文</a> | <a href="./README_en.md" target="_blank">English</a> </p>
 
-<a href="https://github.com/jeffcail/echoframe/releases">
-    <img src="https://img.shields.io/github/release/echoframe/releases.svg" alt="GitHub release">
-  </a>
-   <a href="https://github.com/jeffcail/echoframe/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
-  </a>
-
-[TOC]- [关于我](#关于我)
-- [关于我](#关于我)
+[目录]
 - [echoframe](#echoframe)
   - [简介](#简介)
   - [安装](#安装)
-  - [目的及优势](#目的及优势)
-  - [技术点对应文档](#技术点对应文档)
+  - [技术栈](#技术栈)
   - [职责](#职责)
     - [1. 文件配置](#文件配置)
     - [2. 路由](#路由)
@@ -33,43 +26,24 @@
     - [15. LevelDB](#LevelDB)
     - [16. MongoDB](#MongoDB)
     - [17. ElasticSearch](#ElasticSearch)
-# 关于我
-21实际拾荒人
 
-github地址: <a href="https://github.com/jeffcail/echoframe" target="_blank">echoframe</a>
-
-个人博客地址: <a href="https://blog.caixiaoxin.cn/?p=757" target="_blank">太阳上的雨天</a>
-
-CSDN: <a href="caixiaoxin.blog.csdn.net">太阳上的雨天></a>
-
-知乎: <a href="https://www.zhihu.com/people/cai-cai-55-44-82">太阳上的雨天</a>
-
-# echoframe
-
-
+# EchoFrame
+> 基于echo框架,搭建一个便捷好用的脚手架
 
 ## 简介
-Echo best scaffolding.Fllowing me. Let's go
-基于echo框架，搭建一个好用的脚手架。
+写这个脚手架的初心是为了简化开发流程，提高开发效率，减少重复代码的编写。
+通过预设的项目结构、配置和常用的工具集成，开发者可以快速启动项目，专注于核心业务逻辑的实现。
+此外，脚手架还能帮助团队规范代码风格和项目结构，确保开发一致性，降低维护成本，提升开发和协作效率
 
 ## 安装
-安装完之后名字echoframe可改，可根据自己的需求精简或者添加架子结构。也可直接使用
 ```shell
 git clone https://github.com/jeffcail/echoframe.git
-
 cd echoframe
-
 go mod tidy
-
 go run main.go
 ```
 
-## 目的及优势
-
-* 快速上手、快速开发、快速交付
-* 高性能、高扩展，避免重复造轮子
-
-## 技术栈和对应的包
+## 技术栈
 * ini: https://github.com/go-ini/ini
 * viper: https://github.com/spf13/viper
 * Nacos: https://nacos.io/zh-cn/

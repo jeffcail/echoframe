@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  nacos:
+    image: zhusaidong/nacos-server-m1:2.0.3 # M1 支持版本nacos有限，这里要用zhusaidong/nacos-server-m1:2.0.3
+    container_name: nacos
+    restart: always
+    ports:
+      - 8848:8848
+      - 9848:9848
+      - 9849:9849
+    environment:
+      - JVM_XMS=256m
+      - JVM_XMX=256m
+      - MODE=standalone
+      - PREFER_HOST_MODE=hostname
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=192.168.0.182
+      - MYSQL_SERVICE_DB_NAME=nacos
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=123456
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone==GMT%2B8
+    volumes:
+      - ./nacos/logs:/home/nacos/logs
