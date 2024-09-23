@@ -2,12 +2,12 @@ debug: true
 port: :8081
 slat: b10adc3749ba50cbbe76e057f20f8876
 mysql:
-  dsn: root:123456@tcp(127.0.0.1:3306)/database_name?charset=utf8mb4
+  dsn: root:asdasdzxc@tcp(192.168.0.39:3306)/gs_mining_db?charset=utf8mb4
   show: true
 redis:
-  addr: 127.0.0.1:7379
+  url: 192.168.0.39:7379
   password: 123456
-  db: 0
+  db: 1
 logger:
   path: ./log/echoframe.log
   max: 10240
@@ -17,6 +17,6 @@ logger:
 jwt:
   expire: 3600
   secret: 90fc4956fb1d4f0f963d8cc2a3bf86e934234223423
-leveldb: ./leveldb_data
+leveldb: /leveldb_data
 mongodb: mongodb://127.0.0.1:27017/?maxPoolSize=20&w=majority
 es: https://127.0.0.1:9200

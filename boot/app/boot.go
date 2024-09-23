@@ -2,6 +2,8 @@ package app
 
 import (
 	"flag"
+	"github.com/jeffcail/echoframe/g"
+	"github.com/jeffcail/echoframe/vm"
 	"github.com/jeffcail/gtools"
 	"github.com/labstack/echo/v4"
 )
@@ -9,7 +11,6 @@ import (
 type App struct {
 	c    *echo.Echo
 	port string
-	cf   string
 }
 
 var cf string
@@ -21,14 +22,13 @@ func init() {
 func NewApp() *App {
 	flag.Parse()
 	ap := new(App)
-	gm := gtools.Gm
-
 	if ap.c == nil {
-		gm.M = gtools.LoadConfig(cf)
+		g.GM.M = gtools.LoadConfig(cf)
 	}
 	ap.c = echo.New()
-	val, ok := gm.M["port"]
-	if !ok || val == nil {
+
+	val := g.GM.Get("port")
+	if val.(string) == "" {
 		ap.port = ":8090"
 	}
 	ap.port = val.(string)
@@ -37,5 +37,10 @@ func NewApp() *App {
 }
 
 func (a *App) Start() {
+	a.do()
 	a.c.Logger.Fatal(a.c.Start(a.port))
+}
+
+func (a *App) do() {
+	vm.NewStore()
 }

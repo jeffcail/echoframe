@@ -103,6 +103,7 @@ github.com/jackc/fake v0.0.0-20150926172116-812a484cc733/go.mod h1:WrMFNQdiFJ80s
 github.com/jackc/pgx v3.6.0+incompatible/go.mod h1:0ZGrqGqkRlliWnWB4zKnWtjbSWbGkVEFm4TeybAXq+I=
 github.com/jeffcail/gtools v0.0.1 h1:ioqTgS8grR26QnrwUE4qrvytSi5JTxaGRcDmudxL70U=
 github.com/jeffcail/gtools v0.0.1/go.mod h1:cPlb3ZorJXU1KLJZKzrLnvTR0BIikfIuL8n1Y29Ve4A=
+github.com/jeffcail/gtools v0.0.3/go.mod h1:6niwKmne/KYbdCDzmxVkRx1+NzGCSOp721lit496Bzg=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
 github.com/jinzhu/inflection v1.0.0 h1:K317FqzuhWc8YvSVlFMCCUb36O/S9MCKRDI7QkRKD/E=
 github.com/jinzhu/inflection v1.0.0/go.mod h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkryuEj+Srlc=

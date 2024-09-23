@@ -2,7 +2,7 @@ module github.com/jeffcail/echoframe
 
 go 1.22.0
 
-require github.com/jeffcail/gtools v0.0.1
+require github.com/jeffcail/gtools v0.0.3
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect

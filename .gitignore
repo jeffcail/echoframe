@@ -3,3 +3,4 @@
 log
 cache
 /leveldb_data
+scripts/env/nacos
