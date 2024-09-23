@@ -4,6 +4,10 @@ go 1.22.0
 
 require github.com/jeffcail/gtools v0.0.3
 
+replace (
+	github.com/jeffcail/gtools => /Users/bz/github.com/go/gtools
+)
+
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/BurntSushi/toml v1.3.2 // indirect

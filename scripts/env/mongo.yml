@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:5.0.10-focal
+    ports:
+      - "27017:27017"
+    restart: always
+    # command:
+    # - "--auth"
+    environment:
+      #      MONGO_INITDB_ROOT_USERNAME: root
+      #      MONGO_INITDB_ROOT_PASSWORD: "123456"
+      wiredTigerCacheSizeGB: 2
+    volumes:
+      - "./mongodb/data:/data/db"
+      - "./Users/cc/docker/mongodb/logs:/var/log/mongodb"
+      - "/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime"
+
+networks:
+  docker:
+    external: true

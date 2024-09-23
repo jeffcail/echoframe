@@ -11,10 +11,13 @@ import (
 	"strconv"
 )
 
+var err error
+
 type StoreMem struct {
-	Ldb *gtools.LevelDB
-	Orm *xorm.Engine
-	Rdb *redis.Client
+	Ldb   *gtools.LevelDB
+	Orm   *xorm.Engine
+	Rdb   *redis.Client
+	Mongo *gtools.MongoDb
 }
 
 var Store *StoreMem
@@ -31,10 +34,21 @@ func NewStore() {
 	if Store.Rdb == nil {
 		Store.newRedis()
 	}
+
+	if Store.Mongo == nil {
+		Store.newMongo()
+	}
+}
+
+func (s *StoreMem) newMongo() {
+	m := g.GM.Get("mongodb").(string)
+	s.Mongo, err = gtools.NewMongoDb(nil, m)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func (s *StoreMem) newRedis() {
-	var err error
 	m := g.GM.Get("redis").(map[string]interface{})
 	url, ok := m["url"].(string)
 	if !ok {
@@ -54,7 +68,6 @@ func (s *StoreMem) newRedis() {
 }
 
 func (s *StoreMem) newOrm() {
-	var err error
 	m := g.GM.Get("mysql").(map[string]interface{})
 	d, ok := m["dsn"].(string)
 	if !ok {
