@@ -6,6 +6,7 @@ import (
 	"github.com/jeffcail/echoframe/vm"
 	"github.com/jeffcail/gtools"
 	"github.com/labstack/echo/v4"
+	"go.uber.org/zap"
 )
 
 type App struct {
@@ -38,6 +39,7 @@ func NewApp() *App {
 
 func (a *App) Start() {
 	a.do()
+	vm.Box.Log.Info("", zap.String("1212212", "1222121"))
 	a.c.Logger.Fatal(a.c.Start(a.port))
 }
 

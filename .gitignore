@@ -1,6 +1,6 @@
 .DS_Store
 .idea
-log
+logs
 cache
 /leveldb_data
 scripts/env/nacos

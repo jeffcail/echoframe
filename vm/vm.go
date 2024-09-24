@@ -6,6 +6,7 @@ import (
 	"github.com/jeffcail/echoframe/g"
 	"github.com/jeffcail/gtools"
 	"github.com/redis/go-redis/v9"
+	"go.uber.org/zap"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -15,34 +16,65 @@ var err error
 
 type StoreMem struct {
 	Ldb   *gtools.LevelDB
-	Orm   *xorm.Engine
+	Db    *xorm.Engine
 	Rdb   *redis.Client
 	Mongo *gtools.MongoDb
+	Log   *zap.Logger
 }
 
-var Store *StoreMem
+var Box *StoreMem
 
 func NewStore() {
-	Store = new(StoreMem)
-	if Store.Ldb == nil {
-		Store.newLevelDB()
+	Box = new(StoreMem)
+	if Box.Ldb == nil {
+		Box.newLevelDB()
 	}
-	if Store.Orm == nil {
-		Store.newOrm()
-	}
-
-	if Store.Rdb == nil {
-		Store.newRedis()
+	if Box.Db == nil {
+		Box.newOrm()
 	}
 
-	if Store.Mongo == nil {
-		Store.newMongo()
+	if Box.Rdb == nil {
+		Box.newRedis()
+	}
+
+	if Box.Mongo == nil {
+		Box.newMongo()
+	}
+
+	Box.Log = newLogger()
+}
+
+func (s *StoreMem) newLevelDB() {
+	pr, err := findProjectRoot()
+	if err != nil {
+		panic(err)
+	}
+
+	val := g.GM.Get("leveldb").(string)
+	var p string
+	if val == "" {
+		p = fmt.Sprintf("%s%s", pr, "./leveldb_data")
+	} else {
+		p = fmt.Sprintf("%s%s", pr, val)
+	}
+
+	s.Ldb, err = gtools.CreateLevelDB(p)
+	if err != nil {
+		panic(err)
 	}
 }
 
-func (s *StoreMem) newMongo() {
-	m := g.GM.Get("mongodb").(string)
-	s.Mongo, err = gtools.NewMongoDb(nil, m)
+func (s *StoreMem) newOrm() {
+	m := g.GM.Get("mysql").(map[string]interface{})
+	d, ok := m["dsn"].(string)
+	if !ok {
+		panic(ok)
+	}
+	show, ok := m["show"].(bool)
+	if !ok {
+		panic(ok)
+	}
+	s.Db, err = gtools.NewXrm(d, show)
 	if err != nil {
 		panic(err)
 	}
@@ -67,37 +99,9 @@ func (s *StoreMem) newRedis() {
 	}
 }
 
-func (s *StoreMem) newOrm() {
-	m := g.GM.Get("mysql").(map[string]interface{})
-	d, ok := m["dsn"].(string)
-	if !ok {
-		panic(ok)
-	}
-	show, ok := m["show"].(bool)
-	if !ok {
-		panic(ok)
-	}
-	s.Orm, err = gtools.NewXrm(d, show)
-	if err != nil {
-		panic(err)
-	}
-}
-
-func (s *StoreMem) newLevelDB() {
-	pr, err := findProjectRoot()
-	if err != nil {
-		panic(err)
-	}
-
-	val := g.GM.Get("leveldb").(string)
-	var p string
-	if val == "" {
-		p = fmt.Sprintf("%s%s", pr, "./leveldb_data")
-	} else {
-		p = fmt.Sprintf("%s%s", pr, val)
-	}
-
-	s.Ldb, err = gtools.CreateLevelDB(p)
+func (s *StoreMem) newMongo() {
+	m := g.GM.Get("mongodb").(string)
+	s.Mongo, err = gtools.NewMongoDb(nil, m)
 	if err != nil {
 		panic(err)
 	}
