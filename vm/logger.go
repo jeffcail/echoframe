@@ -1,7 +1,6 @@
 package vm
 
 import (
-	"github.com/jeffcail/echoframe/g"
 	"github.com/jeffcail/gtools"
 	"go.uber.org/zap"
 )
@@ -11,7 +10,7 @@ func newLogger(t int) *zap.Logger {
 	if err != nil {
 		panic(err)
 	}
-	m := g.GM.Get("logger").(map[string]interface{})
+	m := gtools.Gm.Get("logger").(map[string]interface{})
 	var (
 		p  string
 		ok bool

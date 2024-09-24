@@ -2,8 +2,7 @@ package app
 
 import (
 	"flag"
-	"github.com/jeffcail/echoframe/g"
-	"github.com/jeffcail/echoframe/internal/router"
+	"github.com/jeffcail/echoframe/internal/app/router"
 	"github.com/jeffcail/echoframe/vm"
 	"github.com/jeffcail/gtools"
 	"github.com/labstack/echo/v4"
@@ -24,12 +23,10 @@ func NewApp() *App {
 	flag.Parse()
 	ap := new(App)
 	if ap.c == nil {
-		g.GM.M = gtools.LoadConfig(cf)
+		ap.c = echo.New()
+		gtools.LoadConfig(cf)
 	}
-	ap.c = echo.New()
-	gtools.PrintConfigMap(g.GM.M)
-
-	val := g.GM.Get("port")
+	val := gtools.Gm.Get("port")
 	if val.(string) == "" {
 		ap.port = ":8090"
 	}

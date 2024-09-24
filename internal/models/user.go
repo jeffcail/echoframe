@@ -4,15 +4,17 @@ import (
 	"time"
 )
 
+// User represents a row in the 'mining_user' table.
 type User struct {
-	Id        int64     `json:"id" xorm:"pk autoincr BIGINT"`
-	Username  string    `json:"username" xorm:"not null comment('用户名') VARCHAR(50)"`
-	Password  string    `json:"password" xorm:"not null comment('密码') VARCHAR(255)"`
-	CreatedAt time.Time `json:"created_at" xorm:"created not null default 'CURRENT_TIMESTAMP' comment('创建时间') TIMESTAMP"`
-	UpdatedAt time.Time `json:"updated_at" xorm:"updated not null default 'CURRENT_TIMESTAMP' comment('更新时间') TIMESTAMP"`
-	Version   int64     `json:"version" xorm:"version not null comment('版本号') BIGINT"`
+	Id       int64     `xorm:"'id' pk autoincr"`
+	Username string    `xorm:"username"`
+	Created  time.Time `xorm:"'created'"` // 矿机用户创建时间
+	Updated  time.Time `xorm:"'updated'"` // 矿机用户修改时间
+	Deleted  time.Time `xorm:"'deleted'"` // 矿机用户删除时间
+	Version  int64     `xorm:"'version'"` // 版本号
 }
 
+// TableName sets the insert table name for this struct type
 func (u *User) TableName() string {
 	return "user"
 }

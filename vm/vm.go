@@ -3,7 +3,6 @@ package vm
 import (
 	"fmt"
 	"github.com/go-xorm/xorm"
-	"github.com/jeffcail/echoframe/g"
 	"github.com/jeffcail/gtools"
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
@@ -46,7 +45,7 @@ func (s *Store) newLevelDB() {
 		panic(err)
 	}
 
-	val := g.GM.Get("leveldb").(string)
+	val := gtools.Gm.Get("leveldb").(string)
 	var p string
 	if val == "" {
 		p = fmt.Sprintf("%s%s", pr, "./leveldb_data")
@@ -61,7 +60,7 @@ func (s *Store) newLevelDB() {
 }
 
 func (s *Store) newOrm() {
-	m := g.GM.Get("mysql").(map[string]interface{})
+	m := gtools.Gm.Get("mysql").(map[string]interface{})
 	d, ok := m["dsn"].(string)
 	if !ok {
 		panic(ok)
@@ -78,8 +77,7 @@ func (s *Store) newOrm() {
 }
 
 func (s *Store) newRedis() {
-	m := g.GM.Get("redis").(map[string]interface{})
-	gtools.PrintConfigMap(m)
+	m := gtools.Gm.Get("redis").(map[string]interface{})
 	url, ok := m["url"].(string)
 	if !ok {
 		panic(ok)
@@ -98,7 +96,7 @@ func (s *Store) newRedis() {
 }
 
 func (s *Store) newMongo() {
-	m := g.GM.Get("mongodb").(string)
+	m := gtools.Gm.Get("mongodb").(string)
 	s.Mongo, err = gtools.NewMongoDb(nil, m)
 	if err != nil {
 		panic(err)

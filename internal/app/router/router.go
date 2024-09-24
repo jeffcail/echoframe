@@ -1,7 +1,9 @@
 package router
 
 import (
-	"github.com/jeffcail/echoframe/internal/middlewares"
+	"github.com/jeffcail/echoframe/internal/app/handler"
+	"github.com/jeffcail/echoframe/internal/app/middlewares"
+	"github.com/jeffcail/echoframe/internal/middles"
 	"github.com/labstack/echo/v4"
 	"time"
 
@@ -21,7 +23,11 @@ func BootApp(e *echo.Echo) {
 		Output: middlewares.EchoLog,
 	}))
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{Level: 5}))
-
 	e.Use(middlewares.FrameLog())
 	e.Use(middleware.BodyDumpWithConfig(middlewares.ConsoleBodyDumpConfig))
+
+	//e.Use(middles.ErrorHandlingMiddleware)
+	//e.Use(middles.ResponseMiddleware())
+	e.GET("/ping", middles.HandlerMiddleware(handler.ApiDemo))
+
 }
