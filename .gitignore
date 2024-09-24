@@ -4,3 +4,5 @@ logs
 cache
 /leveldb_data
 scripts/env/nacos
+scripts/env/mongodb
+scripts/env/Users
