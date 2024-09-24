@@ -10,41 +10,37 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"sync"
 )
 
 var err error
 
-type StoreMem struct {
-	Ldb   *gtools.LevelDB
-	Db    *xorm.Engine
-	Rdb   *redis.Client
-	Mongo *gtools.MongoDb
-	Log   *zap.Logger
+type Store struct {
+	Log    *zap.Logger
+	OrmLog *zap.Logger
+	Ldb    *gtools.LevelDB
+	Db     *xorm.Engine
+	Rdb    *redis.Client
+	Mongo  *gtools.MongoDb
 }
 
-var Box *StoreMem
+var Box *Store
 
-func NewStore() {
-	Box = new(StoreMem)
-	if Box.Ldb == nil {
-		Box.newLevelDB()
-	}
-	if Box.Db == nil {
+func BootStore() {
+	var once sync.Once
+	once.Do(func() {
+		Box = &Store{
+			Log:    newLogger(1),
+			OrmLog: newLogger(2),
+		}
 		Box.newOrm()
-	}
-
-	if Box.Rdb == nil {
 		Box.newRedis()
-	}
-
-	if Box.Mongo == nil {
+		Box.newLevelDB()
 		Box.newMongo()
-	}
-
-	Box.Log = newLogger()
+	})
 }
 
-func (s *StoreMem) newLevelDB() {
+func (s *Store) newLevelDB() {
 	pr, err := findProjectRoot()
 	if err != nil {
 		panic(err)
@@ -64,7 +60,7 @@ func (s *StoreMem) newLevelDB() {
 	}
 }
 
-func (s *StoreMem) newOrm() {
+func (s *Store) newOrm() {
 	m := g.GM.Get("mysql").(map[string]interface{})
 	d, ok := m["dsn"].(string)
 	if !ok {
@@ -78,10 +74,12 @@ func (s *StoreMem) newOrm() {
 	if err != nil {
 		panic(err)
 	}
+	s.Db.SetLogger(xorm.NewSimpleLogger(XLog))
 }
 
-func (s *StoreMem) newRedis() {
+func (s *Store) newRedis() {
 	m := g.GM.Get("redis").(map[string]interface{})
+	gtools.PrintConfigMap(m)
 	url, ok := m["url"].(string)
 	if !ok {
 		panic(ok)
@@ -99,7 +97,7 @@ func (s *StoreMem) newRedis() {
 	}
 }
 
-func (s *StoreMem) newMongo() {
+func (s *Store) newMongo() {
 	m := g.GM.Get("mongodb").(string)
 	s.Mongo, err = gtools.NewMongoDb(nil, m)
 	if err != nil {
@@ -125,4 +123,13 @@ func findProjectRoot() (string, error) {
 
 		currentDir = parentDir
 	}
+}
+
+var XLog *XLogger
+
+type XLogger struct{}
+
+func (*XLogger) Write(p []byte) (n int, err error) {
+	Box.OrmLog.Info("数据库操作", zap.String("数据库", string(p)))
+	return len(p), nil
 }

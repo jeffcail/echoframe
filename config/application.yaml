@@ -10,6 +10,7 @@ redis:
   db: 1
 logger:
   path: /logs/app.log
+  ormLog: /logs/orm.log
   max: 10240
   live: 7
   compress: true

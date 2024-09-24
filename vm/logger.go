@@ -6,16 +6,29 @@ import (
 	"go.uber.org/zap"
 )
 
-func newLogger() *zap.Logger {
+func newLogger(t int) *zap.Logger {
 	pr, err := findProjectRoot()
 	if err != nil {
 		panic(err)
 	}
 	m := g.GM.Get("logger").(map[string]interface{})
-	p, ok := m["path"].(string)
-	if !ok {
-		panic(ok)
+	var (
+		p  string
+		ok bool
+	)
+	switch t {
+	case 1: // Log
+		p, ok = m["path"].(string)
+		if !ok {
+			panic(ok)
+		}
+	case 2: // OrmLog
+		p, ok = m["ormlog"].(string)
+		if !ok {
+			panic(ok)
+		}
 	}
+
 	p = gtools.CompactStr(pr, p)
 
 	mx, ok := m["max"].(int)
