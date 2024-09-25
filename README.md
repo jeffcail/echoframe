@@ -52,9 +52,9 @@ make run
 ```
 
 ### 代码生成器 auto
-<a href="./cmd/auto.README.md"  target="_blank">简体中文</a>
+<a href="./cmd/auto/README.md"  target="_blank">简体中文</a>
 |
-<a href="./cmd/auto.README_en.md"  target="_blank">English</a>
+<a href="./cmd/auto/README_en.md"  target="_blank">English</a>
 
 ### 贡献
 欢迎提交问题和贡献代码!
