@@ -1,0 +1,32 @@
+package service
+
+import (
+	"github.com/jeffcail/echoframe/internal/app/dao"
+	"github.com/jeffcail/echoframe/internal/models"
+)
+
+type {{.Name}}Service struct{}
+
+func New{{.Name}}Service() *{{.Name}}Service {
+    return &{{.Name}}Service{}
+}
+
+// Create{{.Name}} handles the creation logic for {{.Name}}
+func (this *{{.Name}}Service) Create{{.Name}} (input *models.{{.Name}}) error {
+    return dto.New{{.Name}}Dto().Create{{.Name}}(input)
+}
+
+// Get{{.Name}} handles the retrieval logic for {{.Name}}
+func (this *{{.Name}}Service) Get{{.Name}}(id string) (*models.{{.Name}}, error) {
+    return dto.New{{.Name}}Dto().Get{{.Name}}(id)
+}
+
+// Update{{.Name}} handles the update logic for {{.Name}}
+func (this *{{.Name}}Service) Update{{.Name}}(input *models.{{.Name}}) error {
+    return dto.New{{.Name}}Dto().Update{{.Name}}(input)
+}
+
+// Delete{{.Name}} handles the deletion logic for {{.Name}}
+func (this *{{.Name}}Service) Delete{{.Name}} (id string) error {
+    return dto.New{{.Name}}Dto().Delete{{.Name}}(id)
+}

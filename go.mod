@@ -5,13 +5,12 @@ go 1.22.0
 require (
 	github.com/go-xorm/xorm v0.7.9
 	github.com/google/uuid v1.6.0
-	github.com/jeffcail/gtools v0.0.3
+	github.com/jeffcail/gtools v0.0.5
 	github.com/labstack/echo/v4 v4.12.0
 	github.com/redis/go-redis/v9 v9.6.1
+	github.com/spf13/cast v1.7.0
 	go.uber.org/zap v1.21.0
 )
-
-replace github.com/jeffcail/gtools => /Users/bz/github.com/go/gtools
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
@@ -37,6 +36,7 @@ require (
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/joeshaw/multierror v0.0.0-20140124173710-69b34d4ec901 // indirect
@@ -59,7 +59,7 @@ require (
 	github.com/sagikazarmark/slog-shim v0.1.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
-	github.com/spf13/cast v1.7.0 // indirect
+	github.com/spf13/cobra v1.8.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.19.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect

@@ -1,12 +1,13 @@
 package vm
 
 import (
+	"github.com/jeffcail/echoframe/utils"
 	"github.com/jeffcail/gtools"
 	"go.uber.org/zap"
 )
 
 func newLogger(t int) *zap.Logger {
-	pr, err := findProjectRoot()
+	pr, err := utils.FindProjectRoot()
 	if err != nil {
 		panic(err)
 	}

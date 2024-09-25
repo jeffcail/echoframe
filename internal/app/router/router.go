@@ -1,9 +1,7 @@
 package router
 
 import (
-	"github.com/jeffcail/echoframe/internal/app/handler"
 	"github.com/jeffcail/echoframe/internal/app/middlewares"
-	"github.com/jeffcail/echoframe/internal/middles"
 	"github.com/labstack/echo/v4"
 	"time"
 
@@ -28,6 +26,5 @@ func BootApp(e *echo.Echo) {
 
 	//e.Use(middles.ErrorHandlingMiddleware)
 	//e.Use(middles.ResponseMiddleware())
-	e.GET("/ping", middles.HandlerMiddleware(handler.ApiDemo))
 
 }

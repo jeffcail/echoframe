@@ -1,0 +1,61 @@
+package dto
+
+import (
+    "errors"
+	"github.com/jeffcail/echoframe/internal/models"
+	"github.com/jeffcail/echoframe/vm"
+)
+
+type {{.Name}}Dto struct{}
+
+func New{{.Name}}Dto() *{{.Name}}Dto {
+    return &{{.Name}}Dto{}
+}
+
+// Create{{.Name}} handles database insertion for {{.Name}}
+func (this *{{.Name}}Dto) Create{{.Name}}(bean *models.{{.Name}}) error {
+    affected, err := vm.Box.Db.Insert(bean)
+    if err != nil {
+        return err
+    }
+    if affected == 0 {
+        return errors.New("insert affected 0 rows")
+    }
+
+    return nil
+}
+
+// Get{{.Name}} handles database retrieval for {{.Name}}
+func (this *{{.Name}}Dto) Get{{.Name}}(id string) (*models.{{.Name}}, error) {
+    var bean = new(models.{{.Name}})
+    has, err := vm.Box.Db.Id(id).Get(bean)
+    if err != nil {
+        return bean, err
+    }
+    if !has {
+        return bean, errors.New("data is not found")
+    }
+    return bean, nil
+}
+
+// Update{{.Name}} handles database update for {{.Name}}
+func (this *{{.Name}}Dto) Update{{.Name}}(bean *models.{{.Name}}) error {
+    _, err := vm.Box.Db.Id(bean.Id).AllCols().Update(bean)
+    if err != nil {
+        return err
+    }
+    return nil
+}
+
+// Delete{{.Name}} handles database deletion for {{.Name}}
+func (this *{{.Name}}Dto) Delete{{.Name}}(id string) error {
+    affected, err := vm.Box.Db.Id(id).Delete(&models.{{.Name}}{})
+    if err != nil {
+        return err
+    }
+
+    if affected == 0 {
+        return errors.New("delete affected 0 rows")
+    }
+    return errors.New("not implemented")
+}

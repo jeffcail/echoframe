@@ -1,0 +1,54 @@
+package handler
+
+import (
+	"github.com/jeffcail/echoframe/internal/app/service"
+	"github.com/jeffcail/echoframe/internal/models"
+    "github.com/labstack/echo/v4"
+)
+
+type {{.Name}}Handler struct{}
+
+// Create{{.Name}} creates a new {{.Name}}
+func (this *{{.Name}}Handler) Create{{.Name}}(c echo.Context) {
+    var input models.{{.Name}}
+    if err := c.Bind(&input); err != nil {
+        panic(err)
+    }
+
+    if err := service.New{{.Name}}Service().Create{{.Name}}(&input); err != nil {
+         panic(err)
+    }
+}
+
+// Get{{.Name}} retrieves an existing {{.Name}}
+func (this *{{.Name}}Handler) Get{{.Name}}(c echo.Context) {
+    id := c.Param("id")
+
+    result, err := service.New{{.Name}}Service().Get{{.Name}}(id)
+    if err != nil {
+        panic(err)
+    }
+
+    c.Set("response", result)
+}
+
+// Update{{.Name}} updates an existing {{.Name}}
+func (this *{{.Name}}Handler) Update{{.Name}}(c echo.Context) {
+    var input models.{{.Name}}
+    if err := c.Bind(&input); err != nil {
+        panic(err)
+    }
+
+    if err := service.New{{.Name}}Service().Update{{.Name}}(&input); err != nil {
+        panic(err)
+    }
+}
+
+// Delete{{.Name}} deletes an existing {{.Name}}
+func (this *{{.Name}}Handler) Delete{{.Name}}(c echo.Context) {
+    id := c.Param("id")
+
+    if err := service.New{{.Name}}Service().Delete{{.Name}}(id); err != nil {
+        panic(err)
+    }
+}

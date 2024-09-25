@@ -7,9 +7,16 @@ help:
 	@echo "    env                     : install base project env"
 	@echo "    mongo                   : install mongodb"
 	@echo "    mod                     : go set env and go install package"
-	@echo "    clean                   : clean this mod file"
+	@echo "    run                     : run EchoFrame"
+	@echo "    clean                   : clean local mod cache"
 
 PWD := $(shell pwd)
+
+# app项目名
+AppName := app
+
+# Go 命令
+GO := go
 
 docker v:
 	docker version
@@ -31,7 +38,13 @@ mongo:
 	chmod +x $(PWD)/scripts/env/deploy_mongo.sh
 	scripts/env/deploy_mongo.sh
 
+mod:
+	$(GO) mod tidy
 
+run:
+	$(GO) run cmd/app/main.go
 
+clean:
+	$(GO) clean -modcache
 
 

@@ -3,6 +3,7 @@ package vm
 import (
 	"fmt"
 	"github.com/go-xorm/xorm"
+	"github.com/jeffcail/echoframe/utils"
 	"github.com/jeffcail/gtools"
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
@@ -40,7 +41,7 @@ func BootStore() {
 }
 
 func (s *Store) newLevelDB() {
-	pr, err := findProjectRoot()
+	pr, err := utils.FindProjectRoot()
 	if err != nil {
 		panic(err)
 	}
